@@ -182,6 +182,33 @@ const ProjectDetail: React.FC = () => {
           </div>
         </div>
 
+        {project.sections && project.sections.map((section, index) => (
+          <div key={index} className="container mx-auto px-6 mt-32">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              {/* 텍스트 영역 */}
+              <div className={index % 2 === 0 ? 'order-1' : 'order-2'}>
+                <p className="text-sm text-gray-500 mb-2 uppercase tracking-wider">{section.category}</p>
+                <h2 className="text-4xl font-bold text-white mb-6">{section.title}</h2>
+                <button className="border-2 border-white text-white px-8 py-3 rounded font-semibold hover:bg-white hover:text-black transition-all mb-8">
+                  Learn More
+                </button>
+                <p className="text-gray-400 leading-relaxed">{section.description}</p>
+              </div>
+
+              {/* 이미지 영역 */}
+              <div className={index % 2 === 0 ? 'order-2' : 'order-1'}>
+                <div className="rounded-2xl overflow-hidden">
+                  <RobustImage
+                    src={getProjectImage(project, section.image)}
+                    alt={section.title}
+                    className="w-full h-[500px] object-cover"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+
       </div>
     </div>
   );

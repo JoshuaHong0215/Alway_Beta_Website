@@ -1,5 +1,13 @@
 export type ProjectCategory = 'all' | 'architecture' | 'city-plan' | 'robotics';
 
+// Tesla 스타일 섹션 타입 추가
+export interface ProjectSection {
+  category: string;
+  title: string;
+  description: string;
+  image: string;
+}
+
 export interface ProjectItem {
   id: string;
   title: string;
@@ -10,6 +18,7 @@ export interface ProjectItem {
   tags: string[];
   date: string;
   category: ProjectCategory;
+  sections?: ProjectSection[];  // 추가
 }
 
 export interface ProjectDetailProps {
