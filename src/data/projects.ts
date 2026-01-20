@@ -72,18 +72,22 @@ export const projects: ProjectItem[] = [
       {
         category: 'Convenience',
         title: 'Charge Anytime',
-        description: 'Wall Connector is our fastest way to charge your electric vehicle, whether a Tesla or non-Tesla, at home. For homes with more than one electric vehicle, multiple Wall Connectors can manage power output to meet charging needs. And with Wi-Fi connectivity, you'll always have access to the latest charging features and over-the-air updates.',
+        description: `Wall Connector is our fastest way to charge your electric vehicle, whether a Tesla or non-Tesla, at home. 
+        For homes with more than one electric vehicle, multiple Wall Connectors can manage power output to meet charging needs. 
+        And with Wi-Fi connectivity, you will always have access to the latest charging features and over-the-air updates.`,
         image: 'charge-section.jpg'  // public/projects/robotics/Spot-ATS-System/ 폴더에 넣기
       },
       {
         category: 'Installation',
         title: 'Fast and Flexible',
-        description: 'Wall Connector is designed for houses, apartments, condos and workplaces. The lightweight design allows for versatile, indoor or outdoor mounting that adapts to a range of electrical systems. Work with your own electrician or connect with a Tesla Certified Installer to install a Wall Connector in your home.',
+        description: `Wall Connector is designed for houses, apartments, condos and workplaces. The lightweight design allows for versatile, 
+        indoor or outdoor mounting that adapts to a range of electrical systems. Work with your own electrician or connect with a Tesla Certified 
+        Installer to install a Wall Connector in your home.`,
         image: 'install-section.jpg'
       }  
     ]
   }, 
-  
+
   {
     id: 'PoHang-Hakjeon-District',
     category: 'city-plan',
