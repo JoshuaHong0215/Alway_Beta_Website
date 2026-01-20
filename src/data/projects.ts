@@ -72,18 +72,24 @@ export const projects: ProjectItem[] = [
       {
         category: 'Convenience',
         title: '공사도면 및 지형정보 확인',
-        description: `Wall Connector is our fastest way to charge your electric vehicle, whether a Tesla or non-Tesla, at home. 
-        For homes with more than one electric vehicle, multiple Wall Connectors can manage power output to meet charging needs. 
-        And with Wi-Fi connectivity, you will always have access to the latest charging features and over-the-air updates.`,
-        image: 'charge-section.jpg'  // public/projects/robotics/Spot-ATS-System/ 폴더에 넣기
+        description: `공사평면도와 국토지리정보원도면과 더블체크 이후 QGIS로 지형정보 정제`,
+        image: 'goksungCAD.png'  
       },
+
       {
-        category: 'Installation',
-        title: 'Fast and Flexible',
-        description: `Wall Connector is designed for houses, apartments, condos and workplaces. The lightweight design allows for versatile, 
-        indoor or outdoor mounting that adapts to a range of electrical systems. Work with your own electrician or connect with a Tesla Certified 
-        Installer to install a Wall Connector in your home.`,
-        image: 'install-section.jpg'
+        category: 'PCG Design',
+        title: 'PCG 디자인',
+        description: `PCG 설계를 통하여 넓은 환경에 고퀄리티 Asset을 효율적으로 배치하였음
+        PCG 설계를 통하여 저용량, 고효율의 작업성을 확보하였음`,
+        image: 'goksungPCG.png'
+      },
+      
+      {
+        category: 'Final Output',
+        title: 'PCG설계를 활용하여 사실에 기반한 3D Analysis',
+        description: `PCG 설계를 통하여 넓은 환경에 고퀄리티 Asset을 효율적으로 배치하였음
+        PCG 설계를 통하여 저용량, 고효율의 작업성을 확보하였음`,
+        image: 'goksung02.png'
       }  
     ]
   }, 
