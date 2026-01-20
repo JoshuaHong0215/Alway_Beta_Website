@@ -71,7 +71,7 @@ export const projects: ProjectItem[] = [
     sections: [
       {
         category: 'Convenience',
-        title: 'Charge Anytime',
+        title: '공사도면 및 지형정보 확인',
         description: `Wall Connector is our fastest way to charge your electric vehicle, whether a Tesla or non-Tesla, at home. 
         For homes with more than one electric vehicle, multiple Wall Connectors can manage power output to meet charging needs. 
         And with Wi-Fi connectivity, you will always have access to the latest charging features and over-the-air updates.`,

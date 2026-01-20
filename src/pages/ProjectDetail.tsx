@@ -40,7 +40,6 @@ const ProjectDetail: React.FC = () => {
 
   const mainImageUrl = getProjectImage(project, project.image);
   
-  // 상세 페이지용 에러 화면 컴포넌트
   const DetailErrorDisplay = () => (
     <div className="w-full h-full flex flex-col items-center justify-center text-gray-400 bg-white/5 border border-white/10 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-red-900/20 to-black pointer-events-none"></div>
@@ -181,35 +180,37 @@ const ProjectDetail: React.FC = () => {
             </div>
           </div>
         </div>
+      </div>
+      {/* ✅ grid 여기서 닫힘 */}
 
-        {project.sections && project.sections.map((section, index) => (
-          <div key={index} className="container mx-auto px-6 mt-32">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              {/* 텍스트 영역 */}
-              <div className={index % 2 === 0 ? 'order-1' : 'order-2'}>
-                <p className="text-sm text-gray-500 mb-2 uppercase tracking-wider">{section.category}</p>
-                <h2 className="text-4xl font-bold text-white mb-6">{section.title}</h2>
-                <button className="border-2 border-white text-white px-8 py-3 rounded font-semibold hover:bg-white hover:text-black transition-all mb-8">
-                  Learn More
-                </button>
-                <p className="text-gray-400 leading-relaxed">{section.description}</p>
-              </div>
+      {/* 🆕 Tesla Style Sections - grid 밖에 배치 */}
+      {project.sections && project.sections.map((section, index) => (
+        <div key={index} className="container mx-auto px-6 mt-32">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* 텍스트 영역 */}
+            <div className={index % 2 === 0 ? 'order-1' : 'order-2'}>
+              <p className="text-sm text-gray-500 mb-2 uppercase tracking-wider">{section.category}</p>
+              <h2 className="text-4xl font-bold text-white mb-6">{section.title}</h2>
+              <button className="border-2 border-white text-white px-8 py-3 rounded font-semibold hover:bg-white hover:text-black transition-all mb-8">
+                Learn More
+              </button>
+              <p className="text-gray-400 leading-relaxed whitespace-pre-line">{section.description}</p>
+            </div>
 
-              {/* 이미지 영역 */}
-              <div className={index % 2 === 0 ? 'order-2' : 'order-1'}>
-                <div className="rounded-2xl overflow-hidden">
-                  <RobustImage
-                    src={getProjectImage(project, section.image)}
-                    alt={section.title}
-                    className="w-full h-[500px] object-cover"
-                  />
-                </div>
+            {/* 이미지 영역 */}
+            <div className={index % 2 === 0 ? 'order-2' : 'order-1'}>
+              <div className="rounded-2xl overflow-hidden">
+                <RobustImage
+                  src={getProjectImage(project, section.image)}
+                  alt={section.title}
+                  className="w-full h-[500px] object-cover"
+                />
               </div>
             </div>
           </div>
-        ))}
+        </div>
+      ))}
 
-      </div>
     </div>
   );
 };
