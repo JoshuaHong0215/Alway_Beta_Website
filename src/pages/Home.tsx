@@ -36,7 +36,7 @@ const Home: React.FC = () => {
           </h1>
           
           <p className="text-gray-100 text-lg md:text-xl max-w-lg leading-relaxed animate-slide-up [animation-delay:200ms]">
-            끊임없이 배우고 갈망하는 개발자입니다
+            끊임없이 배우고 갈망하는 예비 개발자입니다
             <br/>
             환경디자인을 전공하였고 경관 및 건축디자인과 
             <br/>
