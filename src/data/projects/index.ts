@@ -18,6 +18,8 @@ import { pohangHakjeon } from './city-plan/pohang-hakjeon';
 
 // Robotics 프로젝트들
 import { spotATSSystem } from './robotics/spot-ats-system';
+import { smallWarehouseControl } from './robotics/smallWarehouseControl';
+
 
 
 
@@ -33,6 +35,7 @@ export const cityPlanProjects: ProjectItem[] = [
 
 export const roboticsProjects: ProjectItem[] = [
   spotATSSystem,
+  smallWarehouseControl,
 ];
 
 // 디버깅

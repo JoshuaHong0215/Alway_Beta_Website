@@ -191,9 +191,12 @@ const ProjectDetail: React.FC = () => {
             <div className={index % 2 === 0 ? 'order-1' : 'order-2'}>
               <p className="text-sm text-gray-500 mb-2 uppercase tracking-wider">{section.category}</p>
               <h2 className="text-4xl font-bold text-white mb-6">{section.title}</h2>
-              <button className="border-2 border-white text-white px-8 py-3 rounded font-semibold hover:bg-white hover:text-black transition-all mb-8">
+
+              
+              {/* <button className="border-2 border-white text-white px-8 py-3 rounded font-semibold hover:bg-white hover:text-black transition-all mb-8">
                 Learn More
-              </button>
+              </button> */}
+              
               <p className="text-gray-400 leading-relaxed whitespace-pre-line">{section.description}</p>
             </div>
 
@@ -203,7 +206,7 @@ const ProjectDetail: React.FC = () => {
                 <RobustImage
                   src={getProjectImage(project, section.image)}
                   alt={section.title}
-                  className="w-full h-[500px] object-cover"
+                  className="w-3/4 max-w-xl h-auto rounded-lg mx-auto"
                 />
               </div>
             </div>
