@@ -38,7 +38,6 @@ export const smallWarehouseControl: ProjectItem = {
       },
 
       
-      
       {
         category: '3D Modeling',
         title: 'Isaacsim Import',
@@ -56,6 +55,25 @@ export const smallWarehouseControl: ProjectItem = {
         뿐만 아니라, Burger에서 사용중인 LDS-01 LiDAR Spec과 동일한 HorizontalFOV, HorizontalResolution, Min,MaxRange등의 세부 특성도
         동일하게 구성하였음`,
         image: 'simburgerTF.png'
+      },
+
+      {
+        category: 'Sim & Real',
+        title: 'Cmd_vel차이',
+        description: `같은 환경을 구성해놓고 현실과 시뮬레이션은 어떤 차이가 있는지 테스트해 보았음
+        테스트는 가로세로1m의 박스형 주행패턴을 적용하여 주행그래프를 추출하였음
+        그래프는 ROS2 bag을 macp파일로 변환하여 녹화하였고 Plotjuggler를 사용해서 Visualization하였음
+        좌측이 시뮬레이션이고 우측이 현실`,
+        image: ['simCmd_vel.png', 'Cmd_vel.png']
+      },
+
+      {
+        category: 'Sim & Real',
+        title: 'Odom차이',
+        description: `데이터에서 twist값이 비정상적으로 요동치는 것을 확인하였고 해당 데이터를 AI를 활용하여 분석한 결과 하드웨어적 결함이 의심된다는 결과를 확보하였음
+        실제 확인결과 왼쪽 바퀴 축이 휘어있음을 확인하였음
+        이걸 기반으로 하드웨어의 물리적 결함을 데이터로 검증하는 의의를 다졌음`,
+        image: ['simOdom.png', 'Odom.png']
       },
     ]
 }
