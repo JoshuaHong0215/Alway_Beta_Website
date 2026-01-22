@@ -200,9 +200,23 @@ const ProjectDetail: React.FC = () => {
               <p className="text-gray-400 leading-relaxed whitespace-pre-line">{section.description}</p>
             </div>
 
-            {/* 이미지 영역 */}
+            {/* 미디어 영역 (이미지 또는 동영상) */}
             <div className={index % 2 === 0 ? 'order-2' : 'order-1'}>
-              {Array.isArray(section.image) ? (
+              {section.video ? (
+                // 동영상이 있는 경우
+                <div className="rounded-2xl overflow-hidden">
+                  <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-auto rounded-lg"
+                    src={getProjectImage(project, section.video)}
+                  >
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              ) : Array.isArray(section.image) ? (
                 // 이미지가 배열인 경우 - 여러 장
                 <div className="grid grid-cols-2 gap-4">
                   {section.image.map((img, imgIndex) => (
@@ -215,7 +229,7 @@ const ProjectDetail: React.FC = () => {
                     </div>
                   ))}
                 </div>
-              ) : (
+              ) : section.image ? (
                 // 이미지가 단일인 경우 - 한 장
                 <div className="rounded-2xl overflow-hidden">
                   <RobustImage
@@ -224,7 +238,7 @@ const ProjectDetail: React.FC = () => {
                     className="w-3/4 max-w-xl h-auto rounded-lg mx-auto"
                   />
                 </div>
-              )}
+              ) : null}
             </div>
           </div>
         </div>
