@@ -75,5 +75,34 @@ export const smallWarehouseControl: ProjectItem = {
         이걸 기반으로 하드웨어의 물리적 결함을 데이터로 검증하는 의의를 다졌음`,
         image: ['simOdom.png', 'Odom.png']
       },
+
+      {
+        category: 'SLAM',
+        title: 'Cartographer SLAM실시',
+        description: `Cartographer와 SLAM ToolBox 두가지를 운용해보았고 긴 경로 탐색 시 누적오차 수정이 비효율적인 SLAM ToolBox보다 대규모 환경에서 누적오차를 강력하게 보정하며 정확도가 높은 Cartographer가 
+        물류창고에 더 적합하다 판단하여 Cartographer를 사용하였음
+        하지만 지금 생각해보니 Slam ToolBox가 더 현명한 선택이 아니었을까 하는 생각이 듬`,
+        image: '일반SLAM.gif'
+      },
+
+      {
+        category: 'comparison',
+        title: 'Slamtoolbox',
+        description: `Slam ToolBox는 지도를 대규모공간 혹은 실시간으로 확장하거나 이미 저장된 지도를 불러와 이어서 그리는 기능이 막강함
+        또, CPU사양이 낮아도 데이터가 밀리지 않도록 비동기 모드를 지원함
+        
+        단점으로 2D 전용이며 여러개의 센서 결합시 Cartographer보다 세밀한 튜닝이 어려울 수도 있음
+    `,
+        image: ''
+      },
+
+       {
+        category: 'comparison',
+        title: 'Cartographer',
+        description: `구글의 최적화 알고리즘을 사용해 위치 오차를 억지로 끼워맞추는 
+        루프클로징 (이전에 왔던 곳을 다시 방문했을 때 위치오차를 바로잡는 능력) 
+        기능이 압도적이지만, 설정이 매우 까다롭고 컴퓨터 자원을 많이 잡아먹는 고성능 도구`,
+        image: ''
+      },
     ]
 }
