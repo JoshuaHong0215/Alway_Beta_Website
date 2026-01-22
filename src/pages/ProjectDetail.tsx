@@ -202,13 +202,29 @@ const ProjectDetail: React.FC = () => {
 
             {/* 이미지 영역 */}
             <div className={index % 2 === 0 ? 'order-2' : 'order-1'}>
-              <div className="rounded-2xl overflow-hidden">
-                <RobustImage
-                  src={getProjectImage(project, section.image)}
-                  alt={section.title}
-                  className="w-3/4 max-w-xl h-auto rounded-lg mx-auto"
-                />
-              </div>
+              {Array.isArray(section.image) ? (
+                // 이미지가 배열인 경우 - 여러 장
+                <div className="grid grid-cols-2 gap-4">
+                  {section.image.map((img, imgIndex) => (
+                    <div key={imgIndex} className="rounded-2xl overflow-hidden">
+                      <RobustImage
+                        src={getProjectImage(project, img)}
+                        alt={`${section.title} ${imgIndex + 1}`}
+                        className="w-full h-auto rounded-lg"
+                      />
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                // 이미지가 단일인 경우 - 한 장
+                <div className="rounded-2xl overflow-hidden">
+                  <RobustImage
+                    src={getProjectImage(project, section.image)}
+                    alt={section.title}
+                    className="w-3/4 max-w-xl h-auto rounded-lg mx-auto"
+                  />
+                </div>
+              )}
             </div>
           </div>
         </div>

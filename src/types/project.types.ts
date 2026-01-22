@@ -5,7 +5,7 @@ export interface ProjectSection {
   category: string;
   title: string;
   description: string;
-  image: string;
+  image: string | string[];
 }
 
 export interface ProjectItem {
