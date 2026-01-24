@@ -14,7 +14,7 @@ export const smallWarehouseControl: ProjectItem = {
       
     `,
     // 원래대로 복구 완료. public 폴더에 drone.jpeg 없으면 에러 화면 뜸.
-    image: 'spotResize.png', 
+    image: '', 
     gallery: [                  
       
     ],
@@ -104,5 +104,25 @@ export const smallWarehouseControl: ProjectItem = {
         기능이 압도적이지만, 설정이 매우 까다롭고 컴퓨터 자원을 많이 잡아먹는 고성능 도구`,
         image: ''
       },
+
+      {
+        category: 'SLAM',
+        title: 'Frontier기반 자율 SLAM',
+        description: `실제 환경에선 TeleopKey를 활용하여 수동 SLAM은 비효율적일것이라 판단하여 Frontier기반 자율탐사 
+        시스템을 적용하였음
+        Frontier기반 자율탐사 시스템이란 센서가 닿지 않은 미지의 영역(Frontier)을 로봇이 스스로 식별하고 
+        찾아가며, 사람의 개입없이 공간 전체의 지도를 완성하는 기술을 뜻한다`,
+        image: 'FrontierSLAM.png'
+      },
+
+      {
+        category: 'SLAM',
+        title: 'Frontier기반 자율 SLAM',
+        description: ``,
+        vedio: 'simulation_explore_slam.mp4'
+      },
     ]
+
+
+    
 }
