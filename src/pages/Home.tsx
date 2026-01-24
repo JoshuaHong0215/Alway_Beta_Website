@@ -40,9 +40,9 @@ const Home: React.FC = () => {
             <br/>
             환경디자인을 전공하였고 경관 및 건축디자인과 
             <br/>
-            도시계획회사에서 재직하다
+            도시계획회사에서 재직하다rk djdjfajsd
             <br/>
-            현재는 로보틱스 개발자를 꿈꾸며 성장하고 있나?.
+            현재는 로보틱스 개발자를 꿈꾸며 성장하고 있나???.
           </p>
 
           <div className="pt-4 animate-slide-up [animation-delay:400ms] pointer-events-auto">
