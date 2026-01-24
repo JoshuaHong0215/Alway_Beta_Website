@@ -6,7 +6,7 @@ export interface ProjectSection {
   title: string;
   description: string;
   image?: string | string[];
-  vedio?: string;
+  video?: string;
 }
 
 export interface ProjectItem {

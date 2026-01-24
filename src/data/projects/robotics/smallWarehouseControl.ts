@@ -119,7 +119,7 @@ export const smallWarehouseControl: ProjectItem = {
         category: 'SLAM',
         title: 'Frontier기반 자율 SLAM',
         description: ``,
-        vedio: 'simulation_explore_slam.mp4'
+        video: 'test.mp4'
       },
     ]
 

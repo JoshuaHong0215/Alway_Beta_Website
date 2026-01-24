@@ -29,7 +29,7 @@ export const getProjectImage = (project: ProjectItem, filename?: string): string
 
   // 기본 경로 생성: public/projects/[category]/[projectId]/[filename]
   // 상대 경로로 반환 (맨 앞 슬래시 없음)
-  return `projects/${project.category}/${project.id}/${cleanFilename}`;
+  return `/projects/${project.category}/${project.id}/${cleanFilename}`;
 };
 
 /**
