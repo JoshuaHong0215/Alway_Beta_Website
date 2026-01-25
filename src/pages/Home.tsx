@@ -42,7 +42,7 @@ const Home: React.FC = () => {
             <br/>
             경관 및 건축디자인회사와 도시계획 회사에서 재직하다가
             <br/>
-            현재는 로보틱스 개발자를 꿈꾸며 성장하고 있긴한데 좀 그래 그냥 그래.
+            현재는 로보틱스 개발자를 꿈꾸며 성장하고 있습니다.
           </p>
 
           <div className="pt-4 animate-slide-up [animation-delay:400ms] pointer-events-auto">
