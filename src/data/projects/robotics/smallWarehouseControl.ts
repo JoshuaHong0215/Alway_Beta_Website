@@ -111,14 +111,16 @@ export const smallWarehouseControl: ProjectItem = {
         description: `실제 환경에선 TeleopKey를 활용하여 수동 SLAM은 비효율적일것이라 판단하여 Frontier기반 자율탐사 
         시스템을 적용하였음
         Frontier기반 자율탐사 시스템이란 센서가 닿지 않은 미지의 영역(Frontier)을 로봇이 스스로 식별하고 
-        찾아가며, 사람의 개입없이 공간 전체의 지도를 완성하는 기술을 뜻한다`,
+        찾아가며, 사람의 개입없이 공간 전체의 지도를 완성하는 기술을 뜻함`,
         image: 'FrontierSLAM.png'
       },
 
       {
         category: 'SLAM',
         title: 'Frontier기반 자율 SLAM',
-        description: ``,
+        description: `영상에서 보여지는 바와 같이 별도의 조작없이도 스스로의 판단하에 지도를 작성하는 것을 볼 수 있음
+        Frontier와 함께 Slam ToolBox나 Cartographer중 하나를 선택하여 조합해서 사용해야하지만 Cartographer의 경우 수정해야할 부분이 많아
+        효율적인 프로젝트 진행을 위해 Slam ToolBox로 진행하였음`,
         video: 'test.mp4'
       },
     ]
