@@ -202,7 +202,21 @@ const ProjectDetail: React.FC = () => {
 
             {/* 미디어 영역 (이미지 또는 동영상) */}
             <div className={index % 2 === 0 ? 'order-2' : 'order-1'}>
-              {section.video ? (
+              {section.youtubeId ? (
+                // 유튜브 영상
+                <div className="rounded-2xl overflow-hidden aspect-video">
+                  <iframe
+                    width="100%"
+                    height="100%"
+                    src={`https://www.youtube.com/embed/${section.youtubeId}?autoplay=1&mute=1&loop=1&playlist=${section.youtubeId}&controls=0&rel=0`}
+                    frameBorder="0"
+                    allow="autoplay; encrypted-media"
+                    allowFullScreen
+                    style={{ pointerEvents: 'none' }}
+                    title={section.title}
+                  />
+                </div>
+              ) : section.video ? (
                 // 동영상이 있는 경우
                 <div className="rounded-2xl overflow-hidden">
                   <video

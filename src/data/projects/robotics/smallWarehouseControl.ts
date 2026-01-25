@@ -122,9 +122,10 @@ export const smallWarehouseControl: ProjectItem = {
         Frontier와 함께 Slam ToolBox나 Cartographer중 하나를 선택하여 조합해서 사용해야하지만 Cartographer의 경우 수정해야할 부분이 많아
         효율적인 프로젝트 진행을 위해 Slam ToolBox로 진행하였다.
         
-        초반에 제자리에서 맴맴돌거나, 안움직이는 현상들이 생겼다. 혹시 몰라 Costmap의 설정을 기존보다 완화시켰고
-        Inflation Radius을 줄였다. 또한, Slam ToolBox에서 mapper_params_online_async.yaml파일에서 transform_timeout과 
-        tf_bugger_duration파라미터 값을 높여 데이터 지연시간에 따른 문제를 해결하였고 동작을 구현하였다 `,
+        초반에 제자리에서 맴맴돌거나, 안움직이는 현상들이 생겼다. 혹시 몰라 Costmap의 설정을 기존보다 
+        완화시켰고 Inflation Radius을 줄였다. 
+        또한, Slam ToolBox에서 mapper_params_online_async.yaml파일에서 transform_timeout과 
+        tf_bugger_duration파라미터 값을 높여 데이터 지연시간에 따른 문제를 해결하였고 동작을 구현하였다. `,
         video: 'test.mp4'
       },
 
