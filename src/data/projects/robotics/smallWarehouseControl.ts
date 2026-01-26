@@ -86,6 +86,14 @@ export const smallWarehouseControl: ProjectItem = {
       },
 
       {
+        category: 'Drive',
+        title: 'Navigation',
+        description: `SLAM으로 Mapping 후 Map data를 얻을 수 있었다.
+        추출된 Map data를 토대로 Navigation을 실시하였고 성공적으로 주행에 성공하였다.`,
+        image: '일반Nav.gif'
+      },
+
+      {
         category: 'comparison',
         title: 'Slamtoolbox',
         description: `Slam ToolBox는 지도를 대규모공간 혹은 실시간으로 확장하거나 이미 저장된 지도를 불러와 이어서 그리는 기능이 막강하다.
@@ -127,6 +135,40 @@ export const smallWarehouseControl: ProjectItem = {
         또한, Slam ToolBox에서 mapper_params_online_async.yaml파일에서 transform_timeout과 
         tf_bugger_duration파라미터 값을 높여 데이터 지연시간에 따른 문제를 해결하였고 동작을 구현하였다. `,
         video: 'test.mp4'
+      },
+
+      {
+        category: 'Verification',
+        title: 'Stress Test 1',
+        description: `도입단계를 고려하여 동적장애물 회피주행 테스트를 실시하였다.
+        Goal을 지정하고 주행을 시작하면 동적장애물을 투입하였고 Rviz상에서 Ghost현상이 남아있어 Local Costmap의 갱신주기를 담당하는
+        update_frequency파라미터를 수정하였다.
+        
+        실제 Burger에 탑재하는 Raspberry PI4의 경우 CPU과부화 문제가 발생할 수 있어
+        최대값인 10Hz까지만 올려서 튜닝하였고 Raytrace_range파라미터를 수정하여 잔상을 효율적으로 지울 수 있도록 수정했으나
+        결론적으로 실패하였다.`,
+        image: 'stresstest01.gif'
+      },
+
+      {
+        category: 'Verification',
+        title: 'Stress Test 2',
+        description: `총 8번을 시행했으나 어느정도 진전이 있다고 판단한 것만 올렸다.`,
+        image: 'stresstest02.gif'
+      },
+
+      {
+        category: 'Verification',
+        title: 'Stress Test 3',
+        description: ``,
+        image: 'stresstest03.gif'
+      },
+
+      {
+        category: 'Verification',
+        title: 'Stress Test 4',
+        description: ``,
+        image: 'stresstest04.gif'
       },
 
       
