@@ -115,12 +115,20 @@ export const smallWarehouseControl: ProjectItem = {
 
       {
         category: 'Server Control',
-        title: '서버 관제',
+        title: '시뮬레이이션 / 서버 관제',
         description: `하드웨어와 서버와의 연동테스트를 시뮬레이션에 연결하여 연동테스트를 진행하였고
         실물에서 보여주던 퍼포먼스를 그대로 보여주었다.
-        
-        물론 동작의 구현은 완벽하게 됐을지 몰라도 세부적인 데이터도 검증이 필요하지 않을까 생각한다.`,
+        아래에 하드웨어와 서버간의 동작시연 영상이 있다.
+        `,
         image: '시뮬,서버연동.gif'
+      },
+
+      {
+        category: 'Server Control',
+        title: '하드웨어 / 서버 관제',
+        description: `
+        동작의 구현은 완벽하게 됐을지 몰라도 서로간의 주행 그래프, 데이터도 함께 검증했으면 하는 아쉬움이 남는다.`,
+        video: 'ROBOT_RACK_A.mp4'
       },
 
       {
