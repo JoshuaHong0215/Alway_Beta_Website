@@ -224,7 +224,7 @@ const ProjectDetail: React.FC = () => {
                     loop
                     muted
                     playsInline
-                    className="w-full h-auto rounded-lg"
+                    className="w-full h-80 object-cover rounded-lg"
                     src={getProjectImage(project, section.video)}
                   >
                     Your browser does not support the video tag.
@@ -238,7 +238,7 @@ const ProjectDetail: React.FC = () => {
                       <RobustImage
                         src={getProjectImage(project, img)}
                         alt={`${section.title} ${imgIndex + 1}`}
-                        className="w-full h-auto rounded-lg"
+                        className="w-full h-64 object-cover rounded-lg"
                       />
                     </div>
                   ))}
@@ -249,7 +249,7 @@ const ProjectDetail: React.FC = () => {
                   <RobustImage
                     src={getProjectImage(project, section.image)}
                     alt={section.title}
-                    className="w-3/4 max-w-xl h-auto rounded-lg mx-auto"
+                    className="w-full h-80 object-cover rounded-lg"
                   />
                 </div>
               ) : null}
