@@ -88,7 +88,7 @@ const ProjectDetail: React.FC = () => {
         <RobustImage
           src={mainImageUrl}
           alt={project.title}
-          className="w-full h-full object-cover object-top"
+          className="w-full h-full object-cover"
           onFinalError={(path) => {
             setDebugInfo(path);
             setIsError(true);
@@ -181,8 +181,9 @@ const ProjectDetail: React.FC = () => {
           </div>
         </div>
       </div>
+      {/* ✅ grid 여기서 닫힘 */}
 
-      {/* Tesla Style Sections */}
+      {/* 🆕 Tesla Style Sections - grid 밖에 배치 */}
       {project.sections && project.sections.map((section, index) => (
         <div key={index} className="container mx-auto px-6 mt-32">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -190,12 +191,19 @@ const ProjectDetail: React.FC = () => {
             <div className={index % 2 === 0 ? 'order-1' : 'order-2'}>
               <p className="text-sm text-gray-500 mb-2 uppercase tracking-wider">{section.category}</p>
               <h2 className="text-4xl font-bold text-white mb-6">{section.title}</h2>
+
+              
+              {/* <button className="border-2 border-white text-white px-8 py-3 rounded font-semibold hover:bg-white hover:text-black transition-all mb-8">
+                Learn More
+              </button> */}
+              
               <p className="text-gray-400 leading-relaxed whitespace-pre-line">{section.description}</p>
             </div>
 
-            {/* 미디어 영역 */}
+            {/* 미디어 영역 (이미지 또는 동영상) */}
             <div className={index % 2 === 0 ? 'order-2' : 'order-1'}>
               {section.youtubeId ? (
+                // 유튜브 영상
                 <div className="rounded-2xl overflow-hidden aspect-video">
                   <iframe
                     width="100%"
@@ -209,36 +217,39 @@ const ProjectDetail: React.FC = () => {
                   />
                 </div>
               ) : section.video ? (
-                <div className="rounded-2xl overflow-hidden aspect-video">
+                // 동영상이 있는 경우
+                <div className="rounded-2xl overflow-hidden">
                   <video
                     autoPlay
                     loop
                     muted
                     playsInline
-                    className="w-full h-full object-cover"
+                    className="w-full h-80 object-cover rounded-lg"
                     src={getProjectImage(project, section.video)}
                   >
                     Your browser does not support the video tag.
                   </video>
                 </div>
               ) : Array.isArray(section.image) ? (
+                // 이미지가 배열인 경우 - 여러 장
                 <div className="grid grid-cols-2 gap-4">
                   {section.image.map((img, imgIndex) => (
-                    <div key={imgIndex} className="rounded-2xl overflow-hidden aspect-video">
+                    <div key={imgIndex} className="rounded-2xl overflow-hidden">
                       <RobustImage
                         src={getProjectImage(project, img)}
                         alt={`${section.title} ${imgIndex + 1}`}
-                        className="w-full h-full object-cover"
+                        className="w-full h-64 object-cover rounded-lg"
                       />
                     </div>
                   ))}
                 </div>
               ) : section.image ? (
-                <div className="rounded-2xl overflow-hidden aspect-video">
+                // 이미지가 단일인 경우 - 한 장
+                <div className="rounded-2xl overflow-hidden">
                   <RobustImage
                     src={getProjectImage(project, section.image)}
                     alt={section.title}
-                    className="w-full h-full object-cover"
+                    className="w-full h-80 object-cover rounded-lg"
                   />
                 </div>
               ) : null}
