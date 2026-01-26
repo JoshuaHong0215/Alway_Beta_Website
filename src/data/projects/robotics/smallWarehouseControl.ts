@@ -14,7 +14,7 @@ export const smallWarehouseControl: ProjectItem = {
       
     `,
     // 원래대로 복구 완료. public 폴더에 drone.jpeg 없으면 에러 화면 뜸.
-    image: '', 
+    image: 'warehouse.png', 
     gallery: [                  
       
     ],
@@ -86,14 +86,6 @@ export const smallWarehouseControl: ProjectItem = {
       },
 
       {
-        category: 'Drive',
-        title: 'Navigation',
-        description: `SLAM으로 Mapping 후 Map data를 얻을 수 있었다.
-        추출된 Map data를 토대로 Navigation을 실시하였고 성공적으로 주행에 성공하였다.`,
-        image: '일반Nav.gif'
-      },
-
-      {
         category: 'comparison',
         title: 'Slamtoolbox',
         description: `Slam ToolBox는 지도를 대규모공간 혹은 실시간으로 확장하거나 이미 저장된 지도를 불러와 이어서 그리는 기능이 막강하다.
@@ -104,13 +96,31 @@ export const smallWarehouseControl: ProjectItem = {
         image: ''
       },
 
-       {
+      {
         category: 'comparison',
         title: 'Cartographer',
         description: `Cartographer는 구글의 최적화 알고리즘을 사용해 위치 오차를 억지로 끼워맞추는 
         루프클로징 (이전에 왔던 곳을 다시 방문했을 때 위치오차를 바로잡는 능력) 
         기능이 압도적이지만, 설정이 매우 까다롭고 컴퓨터 자원을 많이 잡아먹는 고성능 도구이다.`,
         image: ''
+      },
+
+      {
+        category: 'Drive',
+        title: 'Navigation',
+        description: `SLAM으로 Mapping 후 Map data를 얻을 수 있었다.
+        추출된 Map data를 토대로 Navigation을 실시하였고 성공적으로 주행에 성공하였다.`,
+        image: '일반Nav.gif'
+      },
+
+      {
+        category: 'Server Control',
+        title: '서버 관제',
+        description: `하드웨어와 서버와의 연동테스트를 시뮬레이션에 연결하여 연동테스트를 진행하였고
+        실물에서 보여주던 퍼포먼스를 그대로 보여주었다.
+        
+        물론 동작의 구현은 완벽하게 됐을지 몰라도 세부적인 데이터도 검증이 필요하지 않을까 생각한다.`,
+        image: '시뮬,서버연동.gif'
       },
 
       {
