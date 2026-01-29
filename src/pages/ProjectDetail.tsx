@@ -88,7 +88,7 @@ const ProjectDetail: React.FC = () => {
         <RobustImage
           src={mainImageUrl}
           alt={project.title}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-bottom"
           onFinalError={(path) => {
             setDebugInfo(path);
             setIsError(true);
