@@ -30,7 +30,7 @@ const Home: React.FC = () => {
           
           <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-white animate-slide-up">
             WELCOME TO <br />
-            <span className="text-black bg-gradient-to-r from-neon-blue to-purple-500 px-3 rounded-lg inline-block mt-2">
+            <span className="text-black ">
               MY WORK
             </span>
           </h1>

@@ -115,7 +115,7 @@ export const smallWarehouseControl: ProjectItem = {
 
       {
         category: 'Server Control',
-        title: '시뮬레이이션 / 서버 관제',
+        title: '시뮬레이션 / 서버 관제',
         description: `하드웨어와 서버와의 연동테스트를 시뮬레이션에 연결하여 연동테스트를 진행하였고
         실물에서 보여주던 퍼포먼스를 그대로 보여주었다.
         아래에 하드웨어와 서버간의 동작시연 영상이 있다.

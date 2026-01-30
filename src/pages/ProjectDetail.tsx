@@ -181,83 +181,98 @@ const ProjectDetail: React.FC = () => {
           </div>
         </div>
       </div>
-      {/* ✅ grid 여기서 닫힘 */}
 
-      {/* 🆕 Tesla Style Sections - grid 밖에 배치 */}
+      {/* Tesla Style Sections */}
       {project.sections && project.sections.map((section, index) => (
-        <div key={index} className="container mx-auto px-6 mt-32">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* 텍스트 영역 */}
-            <div className={index % 2 === 0 ? 'order-1' : 'order-2'}>
-              <p className="text-sm text-gray-500 mb-2 uppercase tracking-wider">{section.category}</p>
-              <h2 className="text-4xl font-bold text-white mb-6">{section.title}</h2>
-
+        <section key={index} className="mt-32 lg:mt-48">
+          <div className="container mx-auto px-6">
+            <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center ${
+              index % 2 === 1 ? 'lg:grid-flow-dense' : ''
+            }`}>
               
-              {/* <button className="border-2 border-white text-white px-8 py-3 rounded font-semibold hover:bg-white hover:text-black transition-all mb-8">
-                Learn More
-              </button> */}
-              
-              <p className="text-gray-400 leading-relaxed whitespace-pre-line">{section.description}</p>
-            </div>
+              {/* 텍스트 영역 */}
+              <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
+                <p className="text-sm text-gray-500 mb-2 uppercase tracking-wider">
+                  {section.category}
+                </p>
+                <h2 className="text-4xl font-bold text-gray-100 mb-6">
+                  {section.title}
+                </h2>
+                <p className="text-gray-400 text-lg leading-relaxed whitespace-pre-line">
+                  {section.description}
+                </p>
+              </div>
 
-            {/* 미디어 영역 (이미지 또는 동영상) */}
-            <div className={index % 2 === 0 ? 'order-2' : 'order-1'}>
-              {section.youtubeId ? (
-                // 유튜브 영상
-                <div className="rounded-2xl overflow-hidden aspect-video">
-                  <iframe
-                    width="100%"
-                    height="100%"
-                    src={`https://www.youtube.com/embed/${section.youtubeId}?autoplay=1&mute=1&loop=1&playlist=${section.youtubeId}&controls=0&rel=0`}
-                    frameBorder="0"
-                    allow="autoplay; encrypted-media"
-                    allowFullScreen
-                    style={{ pointerEvents: 'none' }}
-                    title={section.title}
-                  />
-                </div>
-              ) : section.video ? (
-                // 동영상이 있는 경우
-                <div className="rounded-2xl overflow-hidden">
-                  <video
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full h-80 object-cover rounded-lg"
-                    src={getProjectImage(project, section.video)}
-                  >
-                    Your browser does not support the video tag.
-                  </video>
-                </div>
-              ) : Array.isArray(section.image) ? (
-                // 이미지가 배열인 경우 - 여러 장
-                <div className="grid grid-cols-2 gap-4">
-                  {section.image.map((img, imgIndex) => (
-                    <div key={imgIndex} className="rounded-2xl overflow-hidden">
-                      <RobustImage
-                        src={getProjectImage(project, img)}
-                        alt={`${section.title} ${imgIndex + 1}`}
-                        className="w-full h-64 object-cover rounded-lg"
-                      />
-                    </div>
-                  ))}
-                </div>
-              ) : section.image ? (
-                // 이미지가 단일인 경우 - 한 장
-                <div className="rounded-2xl overflow-hidden">
-                  <RobustImage
-                    src={getProjectImage(project, section.image)}
-                    alt={section.title}
-                    className="w-full h-80 object-cover rounded-lg"
-                  />
-                </div>
-              ) : null}
+              {/* 미디어 영역 */}
+              <div className={index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}>
+                {section.youtubeId ? (
+                  // 유튜브 영상
+                  <div className="rounded-2xl overflow-hidden aspect-video">
+                    <iframe
+                      width="100%"
+                      height="100%"
+                      src={`https://www.youtube.com/embed/${section.youtubeId}?autoplay=1&mute=1&loop=1&playlist=${section.youtubeId}&controls=0&rel=0`}
+                      frameBorder="0"
+                      allow="autoplay; encrypted-media"
+                      allowFullScreen
+                      style={{ pointerEvents: 'none' }}
+                      title={section.title}
+                    />
+                  </div>
+                ) : section.video ? (
+                  // 동영상
+                  <div className="rounded-2xl overflow-hidden">
+                    <video
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-auto object-cover"
+                      src={getProjectImage(project, section.video)}
+                    >
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                ) : Array.isArray(section.image) ? (
+                  // 이미지 배열 - 2장이면 2열, 3장 이상이면 2열 그리드
+                  <div className={`grid gap-4 ${
+                    section.image.length === 1 ? 'grid-cols-1' :
+                    section.image.length === 2 ? 'grid-cols-2' :
+                    'grid-cols-2'
+                  }`}>
+                    {section.image.map((img, imgIndex) => (
+                      <div 
+                        key={imgIndex} 
+                        className={`rounded-2xl overflow-hidden bg-black/20 ${
+                          section.image.length === 3 && imgIndex === 2 ? 'col-span-2' : ''
+                        }`}
+                      >
+                        <RobustImage
+                          src={getProjectImage(project, img)}
+                          alt={`${section.title} ${imgIndex + 1}`}
+                          className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                ) : section.image ? (
+                  // 단일 이미지
+                  <div className="rounded-2xl overflow-hidden">
+                    <RobustImage
+                      src={getProjectImage(project, section.image)}
+                      alt={section.title}
+                      className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700"
+                    />
+                  </div>
+                ) : null}
+              </div>
             </div>
           </div>
-        </div>
+        </section>
       ))}
 
+      {/* Bottom Spacing */}
+      <div className="h-32"></div>
     </div>
   );
 };
