@@ -19,5 +19,5 @@ export const spotATSSystem: ProjectItem = {
       'view2.png'
     ],
     tags: ['ROS2', 'SPOT', 'ATS', 'Isaac Sim', 'Isaac Lab', 'LLM'], 
-    date: '2025. Today',
+    date: '2026. 01. 02',
 }
