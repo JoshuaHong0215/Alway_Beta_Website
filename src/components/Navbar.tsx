@@ -35,13 +35,6 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  {/*
-  const handleContactClick = () => {
-    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-    setIsMobileMenuOpen(false);
-  };
-  */}
-
   const handleProjectClick = (category: ProjectCategory) => {
     navigate(`/projects?category=${category}`);
     setIsMobileMenuOpen(false);
@@ -112,14 +105,15 @@ const Navbar: React.FC = () => {
               </div>
             );
           })}
-
-              
-          <button
-            onClick={handleContactClick}
+          
+          <a
+            href="https://github.com/JoshuaHong0215"
+            target="_blank"
+            rel="noopener noreferrer"
             className={`text-sm transition-colors ${!isTransparent ? 'text-gray-300 hover:text-white' : 'text-black hover:text-neon-blue font-semibold'}`}
           >
-            Contact
-          </button>
+            GitHub
+          </a>
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -174,12 +168,14 @@ const Navbar: React.FC = () => {
               </div>
             ))}
             
-            <button
-              onClick={handleContactClick}
+            <a
+              href="https://github.com/JoshuaHong0215"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-2xl font-bold text-left text-white hover:text-neon-blue"
             >
-              Contact
-            </button>
+              GitHub
+            </a>
           </div>
         </div>
       )}
