@@ -35,10 +35,12 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  {/*
   const handleContactClick = () => {
     window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
     setIsMobileMenuOpen(false);
   };
+  */}
 
   const handleProjectClick = (category: ProjectCategory) => {
     navigate(`/projects?category=${category}`);
@@ -110,7 +112,8 @@ const Navbar: React.FC = () => {
               </div>
             );
           })}
-          
+
+              
           <button
             onClick={handleContactClick}
             className={`text-sm transition-colors ${!isTransparent ? 'text-gray-300 hover:text-white' : 'text-black hover:text-neon-blue font-semibold'}`}

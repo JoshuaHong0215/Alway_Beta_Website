@@ -16,6 +16,8 @@ const Footer: React.FC = () => {
           <a href="https://github.com/JoshuaHong0215" className="text-gray-400 hover:text-neon-blue transition-colors transform hover:scale-110">
             <Github size={20} />
           </a>
+
+          {/*
           <a href="#" className="text-gray-400 hover:text-neon-blue transition-colors transform hover:scale-110">
             <Twitter size={20} />
           </a>
@@ -25,6 +27,7 @@ const Footer: React.FC = () => {
           <a href="mailto:sebin5736@gmail.com" className="text-gray-400 hover:text-neon-blue transition-colors transform hover:scale-110">
             <Mail size={20} />
           </a>
+          */}
         </div>
       </div>
     </footer>
