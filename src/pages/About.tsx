@@ -44,41 +44,38 @@ const About = () => {
               <h3 className="text-2xl font-semibold">Development</h3>
             </div>
             <p className="text-gray-300">
-              Crafting robust and scalable applications using modern frameworks
-              and best practices.
+              Python
             </p>
           </div>
 
           <div className="bg-gray-800 rounded-xl p-6 hover:bg-gray-750 transition-colors">
             <div className="flex items-center gap-3 mb-4">
               <Cpu className="text-blue-400" size={32} />
-              <h3 className="text-2xl font-semibold">AI & ML</h3>
+              <h3 className="text-2xl font-semibold">Robotics</h3>
             </div>
             <p className="text-gray-300">
-              Exploring the frontiers of artificial intelligence and machine
-              learning to create intelligent solutions.
+              ROS2, NVIDIA Isaac Sim
             </p>
           </div>
 
           <div className="bg-gray-800 rounded-xl p-6 hover:bg-gray-750 transition-colors">
             <div className="flex items-center gap-3 mb-4">
               <Layers className="text-blue-400" size={32} />
-              <h3 className="text-2xl font-semibold">Architecture</h3>
+              <h3 className="text-2xl font-semibold">3D Modeling & Planning</h3>
             </div>
             <p className="text-gray-300">
-              Designing clean, maintainable system architectures that scale with
-              your needs.
+              Sketchup / Blender / Unreal Engine  <br />
+              Auto CAD / QGIS
             </p>
           </div>
 
           <div className="bg-gray-800 rounded-xl p-6 hover:bg-gray-750 transition-colors">
             <div className="flex items-center gap-3 mb-4">
               <Zap className="text-blue-400" size={32} />
-              <h3 className="text-2xl font-semibold">Performance</h3>
+              <h3 className="text-2xl font-semibold">Graphic Design</h3>
             </div>
             <p className="text-gray-300">
-              Optimizing applications for speed, efficiency, and exceptional
-              user experience.
+              Photoshop / Illustrator
             </p>
           </div>
         </div>
@@ -88,21 +85,39 @@ const About = () => {
           <div className="space-y-6">
             <div className="border-l-4 border-blue-400 pl-6">
               <h3 className="text-xl font-semibold mb-2">
-                Senior Full Stack Developer
+                City Planner
               </h3>
-              <p className="text-gray-400 mb-2">Company Name • 2022 - Present</p>
+              <p className="text-gray-400 mb-2">Taein L&D • 2023 - 2024</p>
               <p className="text-gray-300">
-                Leading development of enterprise-scale web applications,
-                mentoring junior developers, and implementing best practices.
+                광역 도시 설계도 기반의 3D Modeling 및 도시계획 시뮬레이션을 수행하였으며, <br />
+                외부 협력사와의 원활한 조율과 공정관리를 통해 대규모 프로젝트를 성공적으로 수행했습니다.
               </p>
             </div>
 
             <div className="border-l-4 border-blue-400 pl-6">
-              <h3 className="text-xl font-semibold mb-2">Full Stack Developer</h3>
-              <p className="text-gray-400 mb-2">Previous Company • 2020 - 2022</p>
+              <h3 className="text-xl font-semibold mb-2">Architecture & CityScape Designer</h3>
+              <p className="text-gray-400 mb-2">Wangsan Planners • 2022 - 2023</p>
               <p className="text-gray-300">
-                Developed and maintained multiple client projects using React,
-                Node.js, and cloud technologies.
+                사업 대상지 분석 및 건축 설계도 기반 3D Modeling작업을 수행하였으며, <br />
+                그 기반으로 준공 후 영향분석, 평가 업무를 담당했습니다.
+              </p>
+            </div>
+
+            <div className="border-l-4 border-blue-400 pl-6">
+              <h3 className="text-xl font-semibold mb-2">Architecture & CityScape Designer</h3>
+              <p className="text-gray-400 mb-2">Design Moon • 2021</p>
+              <p className="text-gray-300">
+                사업 대상지 분석 및 건축 설계도 기반 3D Modeling작업을 수행하였으며, <br />
+                아파트 외벽 디자인을 진행하며 아파트단지 개발사업에 참여한 경험이 있습니다. <br />
+              </p>
+            </div>
+
+            <div className="border-l-4 border-blue-400 pl-6">
+              <h3 className="text-xl font-semibold mb-2">Incheon Catholic University</h3>
+              <p className="text-gray-400 mb-2">환경디자인학과</p>
+              <p className="text-gray-300">
+                환경디자인 전공으로서 다양한 공간, 도시, 외부공공 공간 등 다양한 공간기획과 설계이론을 수학하였으며, <br />
+                다양한 툴을 활용한 3D 시각화 및 시뮬레이션 역량을 쌓았습니다.
               </p>
             </div>
           </div>

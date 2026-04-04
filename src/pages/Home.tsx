@@ -30,7 +30,7 @@ const Home: React.FC = () => {
           
           <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-white animate-slide-up">
             WELCOME TO <br />
-            <span className="text-black ">
+            <span className="text-blue ">
               MY WORK
             </span>
           </h1>
