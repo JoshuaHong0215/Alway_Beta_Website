@@ -3,7 +3,7 @@ import { ProjectItem } from '../../../types';
 export const spotATSSystem: ProjectItem = {
     id: 'Spot-ATS-System',
     category: 'robotics',
-    title: 'Spot + ATS System을 결합한\n자율주행 정찰 로봇',
+    title: '[업데이트 예정] Spot + ATS System을\n 결합한 자율주행 정찰 로봇',
     description: 'ROS2 기반으로 정찰하는 드론입니다.',
     content: `
       Isaac Sim을 활용하여 Spot과 ATS System을 결합한 후

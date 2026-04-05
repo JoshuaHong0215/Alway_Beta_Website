@@ -17,22 +17,21 @@ export const songdoPaulBasset: ProjectItem = {
       {
         category: 'Rendering',
         title: '투시도',
-        description: `공사평면도와 국토지리정보원도면과 더블체크 이후 QGIS로 지형정보 정제`,
+        description: `공사 평면도기반 3D Modeling을 실시하였습니다.`,
         image: 'songdo_Paulbasset.jpeg'  
       },
 
       {
         category: '',
         title: '공사 전',
-        description: `공사평면도와 국토지리정보원도면과 더블체크 이후 QGIS로 지형정보 정제`,
+        description: ``,
         image: 'songdoBefore.png'  
       },
 
       {
         category: '',
         title: '공사 후',
-        description: `PCG 설계를 통하여 넓은 환경에 고퀄리티 Asset을 효율적으로 배치하였음
-        PCG 설계를 통하여 저용량, 고효율의 작업성을 확보하였음`,
+        description: ``,
         image: 'songdoAfter.png'
       },
     ]
