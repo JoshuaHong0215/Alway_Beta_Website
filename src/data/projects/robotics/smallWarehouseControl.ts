@@ -3,7 +3,7 @@ import { ProjectItem } from "../../../types";
 export const smallWarehouseControl: ProjectItem = {
     id: 'smallWarehouseControl',
     category: 'robotics',
-    title: '소규모 물류창고 관제시스템',
+    title: '[SLAM,Nav2] 물류창고 관제시스템',
     description: 'IsaacSIM을 활용한 서버와의 관제시스템 구축 및 하드웨어 결함 분석',
     content: `
       본 프로젝트는 물리적 실습환경의 제약을 극복하고 확장성을 검증하기 위해 실제 환경 기반의 시뮬레이션 환경을 구축했습니다.
@@ -18,7 +18,7 @@ export const smallWarehouseControl: ProjectItem = {
     gallery: [                  
       
     ],
-    tags: ['ROS2', 'Burger', 'Isaac Sim', 'Isaac Lab', 'Skethcup'], 
+    tags: ['ROS2', 'Burger', 'Isaac Sim', 'Isaac Lab', 'Skethcup', 'SLAM', 'Nav2'], 
     date: '2025. 11. 27',
 
     sections: [
@@ -85,25 +85,25 @@ export const smallWarehouseControl: ProjectItem = {
         image: '일반SLAM.gif'
       },
 
-      {
-        category: 'comparison',
-        title: 'Slamtoolbox',
-        description: `Slam ToolBox는 지도를 대규모공간 혹은 실시간으로 확장하거나 이미 저장된 지도를 불러와 이어서 그리는 기능이 막강합니다.
-        또, CPU사양이 낮아도 데이터가 밀리지 않도록 비동기 모드를 지원하는 특징이 있습니다.
+    //   {
+    //     category: 'comparison',
+    //     title: 'Slamtoolbox',
+    //     description: `Slam ToolBox는 지도를 대규모공간 혹은 실시간으로 확장하거나 이미 저장된 지도를 불러와 이어서 그리는 기능이 막강합니다.
+    //     또, CPU사양이 낮아도 데이터가 밀리지 않도록 비동기 모드를 지원하는 특징이 있습니다.
         
-        단점으로 2D 전용이며 여러개의 센서 결합시 Cartographer보다 세밀한 튜닝이 어려울 수도 있습니다.
-    `,
-        image: ''
-      },
+    //     단점으로 2D 전용이며 여러개의 센서 결합시 Cartographer보다 세밀한 튜닝이 어려울 수도 있습니다.
+    // `,
+    //     image: ''
+    //   },
 
-      {
-        category: 'comparison',
-        title: 'Cartographer',
-        description: `Cartographer는 구글의 최적화 알고리즘을 사용해 위치 오차를 억지로 끼워맞추는 
-        루프클로징 (이전에 왔던 곳을 다시 방문했을 때 위치오차를 바로잡는 능력) 
-        기능이 압도적이지만, 설정이 매우 까다롭고 컴퓨터 자원을 많이 잡아먹는 고성능 도구입니다.`,
-        image: ''
-      },
+    //   {
+    //     category: 'comparison',
+    //     title: 'Cartographer',
+    //     description: `Cartographer는 구글의 최적화 알고리즘을 사용해 위치 오차를 억지로 끼워맞추는 
+    //     루프클로징 (이전에 왔던 곳을 다시 방문했을 때 위치오차를 바로잡는 능력) 
+    //     기능이 압도적이지만, 설정이 매우 까다롭고 컴퓨터 자원을 많이 잡아먹는 고성능 도구입니다.`,
+    //     image: ''
+    //   },
 
       {
         category: 'Drive',
