@@ -6,9 +6,9 @@ const Footer: React.FC = () => {
     <footer id="contact" className="bg-black py-12 border-t border-white/10">
       <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
         <div className="text-center md:text-left">
-          <h4 className="text-xl font-bold text-white mb-2">JOSHUAHONG</h4>
+          <h4 className="text-xl font-bold text-white mb-2">CHANHO_HONG</h4>
           <p className="text-gray-500 text-sm">
-            © {new Date().getFullYear()} JOSHUAHONG Portfolio. All rights reserved.
+            © {new Date().getFullYear()} CHANHO_HONG Portfolio. All rights reserved.
           </p>
         </div>
         

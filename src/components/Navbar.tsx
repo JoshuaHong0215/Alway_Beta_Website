@@ -57,7 +57,7 @@ const Navbar: React.FC = () => {
         >
           <div className="w-3 h-3 bg-neon-blue rounded-full shadow-[0_0_10px_#00f3ff] group-hover:scale-125 transition-transform duration-300"></div>
           <span className={`bg-clip-text text-transparent bg-gradient-to-r ${!isTransparent ? 'from-white to-gray-400' : 'from-black to-gray-600'}`}>
-            JOSHUAHONG
+            CHANHO_HONG
           </span>
         </Link>
 
