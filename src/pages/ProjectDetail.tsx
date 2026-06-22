@@ -81,121 +81,131 @@ const ProjectDetail: React.FC = () => {
         </button>
       </div>
 
-      {/* Hero Image */}
-      <div className="w-full h-[50vh] md:h-[60vh] relative overflow-hidden bg-black/40">
-        <div className="absolute inset-0 bg-gradient-to-t from-dark-bg via-transparent to-transparent z-10" />
-        
-        <RobustImage
-          src={mainImageUrl}
-          alt={project.title}
-          className="w-full h-full object-cover object-bottom"
-          onFinalError={(path) => {
-            setDebugInfo(path);
-            setIsError(true);
-          }}
-          onErrorDisplay={<DetailErrorDisplay />}
-        />
-        
-        {/* Title Overlay */}
-        <div className="absolute bottom-0 left-0 w-full z-20 container mx-auto px-6 pb-12">
-          <div className="max-w-4xl">
-            <div className="flex items-center gap-3 mb-4">
-              <span className="bg-neon-blue/20 text-neon-blue border border-neon-blue/30 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
-                {project.category.replace('-', ' ')}
-              </span>
-              <span className="flex items-center gap-1 text-gray-300 text-sm font-mono bg-black/50 px-3 py-1 rounded-full border border-white/10">
-                <Calendar size={14} />
+      {/* Custom Header (Matching Image) */}
+      <div className="container mx-auto px-6 pt-12 pb-24 border-b border-white/5">
+        <h1 className="text-white text-5xl md:text-7xl lg:text-[5.5rem] font-bold mb-12 tracking-tight leading-none">
+          {project.title}
+        </h1>
+
+        <div className="grid grid-cols-1 lg:grid-cols-[160px_1fr] gap-y-10 lg:gap-y-12">
+          <div className="text-neon-blue font-mono font-semibold tracking-widest text-sm uppercase align-top pt-1">
+            CATEGORY
+          </div>
+          <div className="text-gray-300 text-lg font-normal tracking-wide uppercase">
+            {project.category.replace('-', ' ')}
+          </div>
+
+          {project.date && (
+            <>
+              <div className="text-neon-blue font-mono font-semibold tracking-widest text-sm uppercase align-top pt-1">
+                DATE
+              </div>
+              <div className="text-gray-300 text-lg font-normal tracking-wide uppercase">
                 {project.date}
+              </div>
+            </>
+          )}
+
+          <div className="text-neon-blue font-mono font-semibold tracking-widest text-sm uppercase align-top pt-2">
+            TAG
+          </div>
+          <div className="flex flex-wrap gap-3">
+            {project.tags.map(tag => (
+              <span key={tag} className="border border-neon-blue/50 text-neon-blue px-4 py-1.5 rounded-full text-sm font-medium">
+                {tag}
               </span>
-            </div>
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 leading-tight shadow-black drop-shadow-lg whitespace-pre-line">
-              {project.title}
-            </h1>
+            ))}
+          </div>
+
+          <div className="text-neon-blue font-mono font-semibold tracking-widest text-sm uppercase align-top pt-1">
+            INTRO
+          </div>
+          <div className="text-gray-300 text-lg leading-relaxed whitespace-pre-line max-w-5xl font-normal">
+            {(project.content || project.description).trim()}
           </div>
         </div>
       </div>
 
-      {/* Content Section */}
-      <div className="container mx-auto px-6 mt-12 grid grid-cols-1 lg:grid-cols-3 gap-12">
-        {/* Left Column */}
-        <div className="lg:col-span-2 space-y-8">
-          <h2 className="text-2xl font-bold text-white border-b border-white/10 pb-4">Project Overview</h2>
-          <div className="prose prose-invert prose-lg max-w-none text-gray-300 whitespace-pre-line leading-relaxed">
-             {project.content || project.description}
-          </div>
-
-          {/* Gallery */}
-          {project.gallery && project.gallery.length > 0 && (
-            <div className="mt-12">
-              <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
-                <Layers size={20} className="text-neon-blue" />
-                Project Gallery
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {project.gallery.map((img, idx) => {
-                  const galleryUrl = getProjectImage(project, img);
-                  
-                  return (
-                    <div key={idx} className="rounded-xl overflow-hidden border border-white/10 group h-64 bg-black/30 relative">
-                      <RobustImage 
-                        src={galleryUrl} 
-                        alt={`Gallery ${idx}`} 
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
-                      />
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-          )}
+      {/* Main Image Banner (if no sections provided, show it here) */}
+      {!project.sections && (
+        <div className="w-full h-auto mt-12 bg-black/40">
+          <RobustImage
+            src={mainImageUrl}
+            alt={project.title}
+            className="w-full h-auto object-cover"
+            onFinalError={(path) => {
+              setDebugInfo(path);
+              setIsError(true);
+            }}
+            onErrorDisplay={<DetailErrorDisplay />}
+          />
         </div>
+      )}
 
-        {/* Right Column */}
-        <div className="lg:col-span-1">
-          <div className="bg-card-bg border border-white/10 rounded-xl p-6 sticky top-24 backdrop-blur-md">
-            <h3 className="text-lg font-bold text-white mb-6">Technical Sheet</h3>
-            <div className="space-y-6">
-              <div>
-                <h4 className="text-xs font-mono text-gray-500 uppercase tracking-widest mb-2">Technologies</h4>
-                <div className="flex flex-wrap gap-2">
-                  {project.tags.map((tag) => (
-                    <span key={tag} className="bg-white/5 hover:bg-neon-blue/10 border border-white/10 hover:border-neon-blue/30 px-3 py-1 rounded text-sm text-gray-300 transition-colors cursor-default">
-                      {tag}
-                    </span>
-                  ))}
+      {/* Gallery (Fallback if plain project) */}
+      {!project.sections && project.gallery && project.gallery.length > 0 && (
+        <div className="container mx-auto px-6 mt-24">
+          <h3 className="text-2xl font-bold text-white mb-12 flex items-center gap-2 border-b border-white/10 pb-6">
+            <Layers size={24} className="text-[#00ff66]" />
+            Project Gallery
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {project.gallery.map((img, idx) => {
+              const galleryUrl = getProjectImage(project, img);
+              return (
+                <div key={idx} className="rounded-2xl overflow-hidden bg-black/30 group">
+                  <RobustImage 
+                    src={galleryUrl} 
+                    alt={`Gallery ${idx}`} 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+                  />
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
+
+      {project.sections && project.sections.map((section, index) => (
+        <section key={index} className="mt-20 lg:mt-28">
+          <div className="container mx-auto px-6">
+
+            {section.wide ? (
+              /* wide 섹션: 텍스트 위 / 이미지 아래 풀width */
+              <div className="flex flex-col gap-6">
+                <div className="max-w-3xl">
+                  <p className="text-neon-blue font-mono text-sm font-semibold mb-3 uppercase tracking-widest">
+                    {section.category}
+                  </p>
+                  <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 tracking-tight">
+                    {section.title}
+                  </h2>
+                  {section.description.trim() && (
+                    <p className="text-gray-400 text-lg leading-relaxed whitespace-pre-line">
+                      {section.description.trim()}
+                    </p>
+                  )}
+                </div>
+                <div className="rounded-2xl overflow-hidden w-4/5 mr-auto" style={{aspectRatio: '720/203'}}>
+                  <RobustImage
+                    src={getProjectImage(project, section.image as string)}
+                    alt={section.title}
+                    className="w-full h-full object-cover"
+                    style={{objectPosition: 'center 49.9%'}}
+                  />
                 </div>
               </div>
-              <div>
-                <h4 className="text-xs font-mono text-gray-500 uppercase tracking-widest mb-2">Project ID</h4>
-                <p className="text-white font-mono">{project.id}</p>
-              </div>
-              <div className="pt-4 border-t border-white/5">
-                <button 
-                  onClick={() => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })}
-                  className="w-full bg-white text-black font-bold py-3 rounded-lg hover:bg-neon-blue transition-colors flex items-center justify-center gap-2"
-                >
-                  Contact about this project
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+            ) : (
+              <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center ${
+                index % 2 === 1 ? 'lg:grid-flow-dense' : ''
+              }`}>
 
-      {/* Tesla Style Sections */}
-      {project.sections && project.sections.map((section, index) => (
-        <section key={index} className="mt-32 lg:mt-48">
-          <div className="container mx-auto px-6">
-            <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center ${
-              index % 2 === 1 ? 'lg:grid-flow-dense' : ''
-            }`}>
-              
               {/* 텍스트 영역 */}
               <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
-                <p className="text-sm text-gray-500 mb-2 uppercase tracking-wider">
+                <p className="text-neon-blue font-mono text-sm font-semibold mb-3 uppercase tracking-widest">
                   {section.category}
                 </p>
-                <h2 className="text-4xl font-bold text-gray-100 mb-6">
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 tracking-tight">
                   {section.title}
                 </h2>
                 <p className="text-gray-400 text-lg leading-relaxed whitespace-pre-line">
@@ -206,7 +216,6 @@ const ProjectDetail: React.FC = () => {
               {/* 미디어 영역 */}
               <div className={index % 2 === 1 ? 'lg:col-start-1 lg:row-start-1' : ''}>
                 {section.youtubeId ? (
-                  // 유튜브 영상
                   <div className="rounded-2xl overflow-hidden aspect-video">
                     <iframe
                       width="100%"
@@ -220,53 +229,49 @@ const ProjectDetail: React.FC = () => {
                     />
                   </div>
                 ) : section.video ? (
-                  // 동영상
-                  <div className="rounded-2xl overflow-hidden">
+                  <div className="rounded-2xl overflow-hidden aspect-video">
                     <video
                       autoPlay
                       loop
                       muted
                       playsInline
-                      className="w-full h-auto object-cover"
+                      className="w-full h-full object-cover"
                       src={getProjectImage(project, section.video)}
                     >
                       Your browser does not support the video tag.
                     </video>
                   </div>
                 ) : Array.isArray(section.image) ? (
-                  // 이미지 배열 - 2장이면 2열, 3장 이상이면 2열 그리드
-                  <div className={`grid gap-4 ${
-                    section.image.length === 1 ? 'grid-cols-1' :
-                    section.image.length === 2 ? 'grid-cols-2' :
-                    'grid-cols-2'
+                  <div className={`grid gap-3 ${
+                    section.image.length === 1 ? 'grid-cols-1' : 'grid-cols-2'
                   }`}>
-                    {section.image.map((img, imgIndex) => (
-                      <div 
-                        key={imgIndex} 
-                        className={`rounded-2xl overflow-hidden bg-black/20 ${
-                          section.image.length === 3 && imgIndex === 2 ? 'col-span-2' : ''
+                    {(section.image as string[]).map((img, imgIndex) => (
+                      <div
+                        key={imgIndex}
+                        className={`rounded-xl overflow-hidden aspect-[4/3] bg-[#111] ${
+                          (section.image as string[]).length === 3 && imgIndex === 2 ? 'col-span-2' : ''
                         }`}
                       >
                         <RobustImage
                           src={getProjectImage(project, img)}
                           alt={`${section.title} ${imgIndex + 1}`}
-                          className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                          className="w-full h-full object-contain hover:scale-105 transition-transform duration-700"
                         />
                       </div>
                     ))}
                   </div>
                 ) : section.image ? (
-                  // 단일 이미지
-                  <div className="rounded-2xl overflow-hidden">
+                  <div className="rounded-2xl overflow-hidden aspect-video bg-[#111]">
                     <RobustImage
                       src={getProjectImage(project, section.image)}
                       alt={section.title}
-                      className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700"
+                      className="w-full h-full object-contain hover:scale-105 transition-transform duration-700"
                     />
                   </div>
                 ) : null}
               </div>
             </div>
+            )}
           </div>
         </section>
       ))}

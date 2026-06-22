@@ -8,6 +8,7 @@ export interface ProjectSection {
   image?: string | string[];
   video?: string;
   youtubeId?: string;
+  wide?: boolean;
 }
 
 export interface ProjectItem {

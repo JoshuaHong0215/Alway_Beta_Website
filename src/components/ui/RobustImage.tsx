@@ -5,16 +5,18 @@ interface RobustImageProps {
   src: string;
   alt: string;
   className?: string;
-  onErrorDisplay?: React.ReactNode; // 커스텀 에러 화면 허용
-  onFinalError?: (failedPath: string) => void; // 에러 발생 시 부모에게 알림
+  style?: React.CSSProperties;
+  onErrorDisplay?: React.ReactNode;
+  onFinalError?: (failedPath: string) => void;
 }
 
-export const RobustImage: React.FC<RobustImageProps> = ({ 
-  src, 
-  alt, 
-  className, 
+export const RobustImage: React.FC<RobustImageProps> = ({
+  src,
+  alt,
+  className,
+  style,
   onErrorDisplay,
-  onFinalError 
+  onFinalError
 }) => {
   const [currentSrc, setCurrentSrc] = useState(src);
   const [attempt, setAttempt] = useState(0);
@@ -56,10 +58,11 @@ export const RobustImage: React.FC<RobustImageProps> = ({
   }
 
   return (
-    <img 
-      src={currentSrc} 
-      alt={alt} 
-      className={className} 
+    <img
+      src={currentSrc}
+      alt={alt}
+      className={className}
+      style={style}
       onError={handleError}
     />
   );
