@@ -19,6 +19,8 @@ import { pohangHakjeon } from './city-plan/pohang-hakjeon';
 // Robotics 프로젝트들
 import { spotATSSystem } from './robotics/spot-ats-system';
 import { smallWarehouseControl } from './robotics/smallWarehouseControl';
+import { opencvIbvsArm } from './robotics/opencv-ibvs-arm';
+import { yoloIbvsArm } from './robotics/yolo-ibvs-arm';
 
 
 
@@ -36,6 +38,8 @@ export const cityPlanProjects: ProjectItem[] = [
 export const roboticsProjects: ProjectItem[] = [
   spotATSSystem,
   smallWarehouseControl,
+  opencvIbvsArm,
+  yoloIbvsArm,
 ];
 
 // 디버깅

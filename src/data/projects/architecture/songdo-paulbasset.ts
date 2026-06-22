@@ -5,7 +5,7 @@ export const songdoPaulBasset: ProjectItem = {
     category: 'architecture',
     title: '송도동 근린생활시설 신축공사',
     description: '송도동 건축경관디자인',
-    content: `
+    intro: `
       위치: 인천광역시 연수구 송도동 8-11
       대지면적: 1,072,00㎡
     `,

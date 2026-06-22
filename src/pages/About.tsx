@@ -27,18 +27,16 @@ const About: React.FC = () => {
 
       {/* 2. Manifesto Section */}
       <section
-        className="relative w-full flex flex-col items-center justify-center text-center border-y border-white/5 px-4 md:px-6 py-24 md:py-32 overflow-hidden"
+        className="relative w-full flex flex-col items-center justify-center text-center border-y border-white/5 px-4 md:px-6 py-40 md:py-56 overflow-hidden"
         style={{
           backgroundImage: 'url(/about_image.png)',
           backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundPosition: 'center calc(50% - 1px)',
         }}
       >
         {/* 어둡게 + 텍스트 가독성 오버레이 */}
-        <div className="absolute inset-0 bg-black/70" />
+        <div className="absolute inset-0 bg-black/55" />
 
-        {/* Gemini 로고 가리기 (우측 하단) */}
-        <div className="absolute bottom-0 right-0 w-20 h-16 bg-black/90" />
 
         <div className="relative z-10 text-lg md:text-2xl lg:text-3xl text-gray-300 leading-[2.0] md:leading-[2.2] max-w-4xl font-normal break-keep space-y-12 md:space-y-16">
           <p>

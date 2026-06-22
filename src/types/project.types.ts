@@ -15,7 +15,7 @@ export interface ProjectItem {
   id: string;
   title: string;
   description: string;
-  content?: string;
+  intro?: string;
   image: string;
   gallery?: string[];
   tags: string[];

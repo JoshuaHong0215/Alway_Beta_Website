@@ -121,7 +121,7 @@ const ProjectDetail: React.FC = () => {
             INTRO
           </div>
           <div className="text-gray-300 text-lg leading-relaxed whitespace-pre-line max-w-5xl font-normal">
-            {(project.content || project.description).trim()}
+            {(project.intro || project.description).trim()}
           </div>
         </div>
       </div>

@@ -5,7 +5,7 @@ export const goksungWindpower: ProjectItem = {
     category: 'city-plan',
     title: '곡성 풍력 발전단지',
     description: '곡성 풍력 발전단지',
-    content: `
+    intro: `
     사업개요: 전라남도 곡성군 오곡면 봉조리 일원
     계획 : 총 7개 호기 설치
     
@@ -21,7 +21,7 @@ export const goksungWindpower: ProjectItem = {
     
     sections: [
       {
-        category: 'Convenience',
+        category: 'Plan',
         title: '공사도면 및 지형정보 확인',
         description: `공사평면도와 국토지리정보원도면과 더블체크 이후 QGIS로 실제 지형 데이터를 정제하였습니다.`,
         image: 'goksungCAD.png'  
