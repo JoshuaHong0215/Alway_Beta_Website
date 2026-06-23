@@ -9,9 +9,9 @@ export interface CategoryConfig {
 
 export const CATEGORIES: CategoryConfig[] = [
   {
-    id: 'architecture',
-    label: 'Architecture',
-    icon: Layout,
+    id: 'robotics',
+    label: 'Robotics',
+    icon: Cpu,
   },
   {
     id: 'city-plan',
@@ -19,9 +19,9 @@ export const CATEGORIES: CategoryConfig[] = [
     icon: Map,
   },
   {
-    id: 'robotics',
-    label: 'Robotics',
-    icon: Cpu,
+    id: 'architecture',
+    label: 'Architecture',
+    icon: Layout,
   },
 ];
 
