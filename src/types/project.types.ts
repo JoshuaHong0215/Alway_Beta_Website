@@ -9,6 +9,7 @@ export interface ProjectSection {
   video?: string;
   youtubeId?: string;
   wide?: boolean;
+  wideText?: boolean;
 }
 
 export interface ProjectItem {

@@ -173,7 +173,7 @@ const ProjectDetail: React.FC = () => {
             {section.wide ? (
               /* wide 섹션: 텍스트 위 / 이미지 아래 풀width */
               <div className="flex flex-col gap-6">
-                <div className="max-w-3xl">
+                <div className={section.wideText ? '' : 'max-w-3xl'}>
                   <p className="text-neon-blue font-mono text-sm font-semibold mb-3 uppercase tracking-widest">
                     {section.category}
                   </p>
@@ -186,7 +186,7 @@ const ProjectDetail: React.FC = () => {
                     </p>
                   )}
                 </div>
-                <div className="rounded-2xl overflow-hidden w-4/5 mr-auto" style={{aspectRatio: '720/203'}}>
+                <div className="rounded-2xl overflow-hidden w-full">
                   <RobustImage
                     src={getProjectImage(project, section.image as string)}
                     alt={section.title}
