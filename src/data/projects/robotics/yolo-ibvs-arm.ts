@@ -35,6 +35,13 @@ export const yoloIbvsArm: ProjectItem = {
       },
 
       {
+        category: 'Visual Servoing',
+        title: 'Servoing Graph를 통한 수렴성 확인',
+        description: `본 데이터는 mode 0 입고에서의 실측 데이터로서 초기 +280px이던 e_y 오차가 8회 보정을 거쳐 수렴 범위 내로 진입한 것을 확인할 수 있었습니다. `,
+        image: 'servo_convergence.png'
+      },
+
+      {
         category: 'AI Model',
         title: 'Roboflow를 활용한 YOLO 학습 모델 생성',
         description: `학습 데이터셋은 영상 촬영 후 프레임 단위로 쪼개 Labeling을 진행하였습니다.
@@ -58,12 +65,7 @@ export const yoloIbvsArm: ProjectItem = {
         image: 'ping_test.png'
       },
 
-      {
-        category: 'Visual Servoing',
-        title: 'Servoing Graph를 통한 수렴성 확인',
-        description: `본 데이터는 mode 0 입고에서의 실측 데이터로서 초기 +280px이던 e_y 오차가 8회 보정을 거쳐 수렴 범위 내로 진입한 것을 확인할 수 있었습니다. `,
-        image: 'servo_convergence.png'
-      },
+      
       
       
 
