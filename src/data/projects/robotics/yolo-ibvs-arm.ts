@@ -29,8 +29,8 @@ export const yoloIbvsArm: ProjectItem = {
 
       {
         category: 'Work',
-        title: 'Pick & Place',
-        description: `mode1 출고, task id1 Red box품목 출고 동작`,
+        title: 'task_id, mode 동작영상',
+        description: `task id 1 red box, mode 1의 출고 동작 영상입니다`,
         video: 'mode1_출고.mp4'
       },
 
