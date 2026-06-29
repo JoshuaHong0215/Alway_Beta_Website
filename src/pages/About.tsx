@@ -136,9 +136,9 @@ const About: React.FC = () => {
             {[
               {
                 period: '2026.04.22 — 2026.06.26',
-                company: 'AddinEdu',
+                company: 'AddinEdu_PinkLAB',
                 role: '심화_ROS2와 AI를 활용한 자율주행&로봇팔 개발자 부트캠프',
-                description: '실제 구현한 서비스를 isaac sim에서 이식 후 실물 하드웨어와, isaac sim에서의 로봇의 차이를 파악하고, 제한적인 운용환경에서 벗어나 가상환경의 창고에서 운용해보며 ',
+                description: 'YOLOv8과 IBVS(Image-Based Visual Servoing)를 결합한 로봇팔 Pick & Place 시스템을 구현하였습니다. Roboflow로 커스텀 데이터셋을 구축하고, 단일 액션 서버에서 task_id·mode 분기로 입출고 6가지 동작을 통합 처리하는 구조를 설계하였습니다. Tailscale Mesh VPN을 활용한 멀티 디바이스 네트워크 환경 구성까지 수행하였습니다.',
               },
               {
                 period: '2025.05.12 — 2025.11.28',
