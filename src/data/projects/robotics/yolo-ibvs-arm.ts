@@ -12,11 +12,12 @@ export const yoloIbvsArm: ProjectItem = {
   탐지된 바운딩박스의 중점을 추출하고, IBVS를 통해 카메라 중점과 정렬한 후 TCP를 align하여 하강 및 피킹을 수행합니다.`
   ,
 
-  image: '',
+  image: 'yolo-ibvs-banner.png',
   tags: ['ROS2', 'YOLO', 'IBVS', 'Roboflow'],
   date: '2026. 05 ~ 06',
   
   sections: [
+    
       {
         category: 'Project Process',
         title: 'Pick & Place Process',
@@ -28,11 +29,33 @@ export const yoloIbvsArm: ProjectItem = {
       },
 
       {
+        category: 'Project Process',
+        title: 'task_id & mode 분기',
+        description: `/pick_place 단일 액션에서 task_id * mode = 6가지의 동작을 통합처리합니다.`,
+        image: 'taskid_mode.png',
+        wide: false,
+        wideText: true
+      },
+
+      {
         category: 'Work',
-        title: 'task_id, mode 동작영상',
-        description: `task id 1 red box, mode 1의 출고 동작 영상입니다`,
+        title: '입고 동작',
+        description: `yellow box입고 영상입니다
+        task_id: 2, mode: 0`,
+        video: 'mode0_입고.mp4'
+      },
+
+      {
+        category: 'Work',
+        title: '출고 동작',
+        description: `red box출고 영상입니다
+        task_id: 1, mode: 1`,
         video: 'mode1_출고.mp4'
       },
+
+      
+
+      
 
       {
         category: 'Visual Servoing',

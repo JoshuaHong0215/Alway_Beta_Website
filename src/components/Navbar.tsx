@@ -71,7 +71,7 @@ const Navbar: React.FC = () => {
               <div key={item.label} className="relative group">
                 <Link
                   to={item.path}
-                  className={`text-sm transition-colors relative flex items-center gap-1 focus:outline-none py-2 ${
+                  className={`text-xl transition-colors relative flex items-center gap-1 focus:outline-none py-2 ${
                     isActive 
                       ? 'text-neon-blue font-bold' 
                       : !isTransparent ? 'text-gray-300 hover:text-white' : 'text-black hover:text-neon-blue font-semibold'
@@ -94,7 +94,7 @@ const Navbar: React.FC = () => {
                         <button
                           key={subItem.category}
                           onClick={() => handleProjectClick(subItem.category)}
-                          className="block w-full text-left px-4 py-3 text-sm text-gray-400 hover:text-white hover:bg-white/10 transition-colors"
+                          className="block w-full text-left px-4 py-3 text-base text-gray-400 hover:text-white hover:bg-white/10 transition-colors"
                         >
                           {subItem.label}
                         </button>
@@ -110,7 +110,7 @@ const Navbar: React.FC = () => {
             href="https://github.com/JoshuaHong0215"
             target="_blank"
             rel="noopener noreferrer"
-            className={`text-sm transition-colors ${!isTransparent ? 'text-gray-300 hover:text-white' : 'text-black hover:text-neon-blue font-semibold'}`}
+            className={`text-xl transition-colors ${!isTransparent ? 'text-gray-300 hover:text-white' : 'text-black hover:text-neon-blue font-semibold'}`}
           >
             GitHub
           </a>

@@ -125,6 +125,77 @@ const About: React.FC = () => {
         </div>
       </section>
 
+      {/* 4. Experience Section */}
+      <section className="py-24 md:py-32 px-6 border-t border-white/5">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-16 tracking-tight">
+            Experience
+          </h2>
+
+          <div className="space-y-0">
+            {[
+              {
+                period: '2026.04.22 — 2026.06.26',
+                company: 'AddinEdu',
+                role: '심화_ROS2와 AI를 활용한 자율주행&로봇팔 개발자 부트캠프',
+                description: '실제 구현한 서비스를 isaac sim에서 이식 후 실물 하드웨어와, isaac sim에서의 로봇의 차이를 파악하고, 제한적인 운용환경에서 벗어나 가상환경의 창고에서 운용해보며 ',
+              },
+              {
+                period: '2025.05.12 — 2025.11.28',
+                company: '연희 직업전문학교',
+                role: 'AI Smart Mobility 부트캠프',
+                description: 'ROS2 기반 모바일 로봇 자율주행 시스템을 집중적으로 학습하였으며, SLAM(Cartographer / SLAM Toolbox)과 Nav2를 활용한 실내 자율주행을 실습하였습니다. Isaac Sim을 통해 실물 운용환경을 3D로 재현하고, 실물-시뮬레이션 간 주행 데이터를 비교 분석하여 하드웨어 결함을 데이터로 검증하는 경험을 쌓았습니다.',
+              },
+              {
+                period: '2023 — 2024',
+                company: 'Taein L&D',
+                role: 'City Planner',
+                description: '광역 도시 설계도 기반의 3D Modeling 및 도시계획 시뮬레이션을 수행하였으며, 외부 협력사와의 원활한 조율과 공정관리를 통해 대규모 프로젝트를 성공적으로 수행했습니다.',
+              },
+              {
+                period: '2022 — 2023',
+                company: 'Wangsan Planners',
+                role: 'Architecture & CityScape Designer',
+                description: '사업 대상지 분석 및 건축 설계도 기반 3D Modeling 작업을 수행하였으며, 그 기반으로 준공 후 영향분석, 평가 업무를 담당했습니다.',
+              },
+              {
+                period: '2021',
+                company: 'Design Moon',
+                role: 'Architecture & CityScape Designer',
+                description: '사업 대상지 분석 및 건축 설계도 기반 3D Modeling 작업을 수행하였으며, 아파트 외벽 디자인을 진행하며 아파트단지 개발사업에 참여한 경험이 있습니다.',
+              },
+              {
+                period: '2016 — 2022',
+                company: 'Incheon Catholic University',
+                role: '환경디자인학과',
+                description: '환경디자인 전공으로서 다양한 공간, 도시, 외부공공 공간 등 다양한 공간기획과 설계이론을 수학하였으며, 다양한 툴을 활용한 3D 시각화 및 시뮬레이션 역량을 쌓았습니다.',
+              },
+            ].map((item, i) => (
+              <div key={i} className="group grid grid-cols-1 md:grid-cols-[200px_1fr] gap-4 md:gap-12 py-10 border-t border-white/10 hover:border-white/20 transition-colors">
+                {/* Left: period + company */}
+                <div className="flex flex-col gap-1">
+                  <span className="text-sm text-gray-500 font-mono tracking-widest">{item.period}</span>
+                  <span className="text-base text-gray-400">{item.company}</span>
+                </div>
+
+                {/* Right: role + description */}
+                <div className="flex flex-col gap-3">
+                  <h3 className="text-xl md:text-2xl font-semibold text-white group-hover:text-neon-blue transition-colors">
+                    {item.role}
+                  </h3>
+                  <p className="text-gray-400 leading-relaxed text-base md:text-lg">
+                    {item.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+
+            {/* 마지막 구분선 */}
+            <div className="border-t border-white/10" />
+          </div>
+        </div>
+      </section>
+
     </div>
   );
 };
