@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Calendar, Layers, RefreshCw, FileText } from 'lucide-react';
+import { ArrowLeft, Calendar, Layers, RefreshCw, FileText, Github } from 'lucide-react';
 import { projects as allProjects } from '../data/projects';
 import { getProjectImage } from '../utils/imageHelper';
 import { RobustImage } from '../components/ui/RobustImage';
@@ -83,9 +83,21 @@ const ProjectDetail: React.FC = () => {
 
       {/* Custom Header (Matching Image) */}
       <div className="container mx-auto px-6 pt-12 pb-24 border-b border-white/5">
-        <h1 className="text-white text-5xl md:text-7xl lg:text-[5.5rem] font-bold mb-12 tracking-tight leading-none">
+        <h1 className="text-white text-5xl md:text-7xl lg:text-[5.5rem] font-bold mb-8 tracking-tight leading-none">
           {project.title}
         </h1>
+
+        {project.githubUrl && (
+          <a
+            href={project.githubUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 mb-12 px-7 py-3.5 border border-white/70 rounded-full text-white hover:border-neon-blue hover:text-neon-blue transition-all duration-300 text-[18px] font-semibold tracking-widest"
+          >
+            <Github size={20} />
+            View on GitHub
+          </a>
+        )}
 
         <div className="grid grid-cols-1 lg:grid-cols-[160px_1fr] gap-y-10 lg:gap-y-12">
           <div className="text-neon-blue font-mono font-semibold tracking-widest text-sm uppercase align-top pt-1">

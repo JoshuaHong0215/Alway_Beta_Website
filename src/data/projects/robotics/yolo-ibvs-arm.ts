@@ -15,6 +15,7 @@ export const yoloIbvsArm: ProjectItem = {
   image: 'yolo-ibvs-banner.png',
   tags: ['ROS2', 'YOLO', 'IBVS', 'Roboflow'],
   date: '2026. 05 ~ 06',
+  githubUrl: 'https://github.com/JoshuaHong0215/beep_jetcobot_ros2_yolo',
   
   sections: [
     

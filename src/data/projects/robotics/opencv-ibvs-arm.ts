@@ -12,5 +12,6 @@ export const opencvIbvsArm: ProjectItem = {
   image: '',
   tags: ['ROS2', 'OpenCV', 'IBVS'],
   date: '2026. 05 ~ 06',
+  githubUrl: 'https://github.com/JoshuaHong0215/beep_jetcobot_ros2_opencv',
   sections: [],
 };

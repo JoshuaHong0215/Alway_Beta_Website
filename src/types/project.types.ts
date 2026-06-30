@@ -23,6 +23,7 @@ export interface ProjectItem {
   date: string;
   category: ProjectCategory;
   sections?: ProjectSection[];  // 추가
+  githubUrl?: string;
 }
 
 export interface ProjectDetailProps {
