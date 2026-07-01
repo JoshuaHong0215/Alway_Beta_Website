@@ -1,6 +1,8 @@
 import { ProjectItem } from '../../../types';
 
 export const spotATSSystem: ProjectItem = {
+    locked: true,
+    lockedReason: '업데이트 예정',
     id: 'Spot-ATS-System',
     category: 'robotics',
     title: '[업데이트 예정] Spot + ATS System을\n 결합한 자율주행 정찰 로봇',

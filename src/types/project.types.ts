@@ -24,6 +24,8 @@ export interface ProjectItem {
   category: ProjectCategory;
   sections?: ProjectSection[];  // 추가
   githubUrl?: string;
+  locked?: boolean;
+  lockedReason?: string;
 }
 
 export interface ProjectDetailProps {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ExternalLink, ImageOff } from 'lucide-react';
+import { ExternalLink, ImageOff, Lock } from 'lucide-react';
 import { ProjectItem } from '../../types';
 import { getProjectImage } from '../../utils/imageHelper';
 import { RobustImage } from '../../components/ui/RobustImage';
@@ -23,28 +23,50 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) => {
     </div>
   );
 
+  const isLocked = project.locked === true;
+
   return (
-    <div 
+    <div
       onClick={() => onClick(project)}
-      className="group relative bg-card-bg border border-white/10 rounded-xl overflow-hidden hover:border-neon-blue/50 transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,243,255,0.1)] flex flex-col animate-slide-up cursor-pointer"
+      className={`group relative bg-card-bg border rounded-xl overflow-hidden transition-all duration-300 flex flex-col animate-slide-up cursor-pointer ${
+        isLocked
+          ? 'border-white/5 hover:border-red-500/30 hover:shadow-[0_0_20px_rgba(239,68,68,0.08)] opacity-75 hover:opacity-90'
+          : 'border-white/10 hover:border-neon-blue/50 hover:shadow-[0_0_20px_rgba(0,243,255,0.1)]'
+      }`}
     >
       {/* Cover Image */}
       <div className="h-48 overflow-hidden relative bg-black/40">
-        <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10" />
-        
-        <RobustImage 
-          src={imageUrl} 
-          alt={project.title} 
-          className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
+        <div className={`absolute inset-0 transition-colors z-10 ${isLocked ? 'bg-black/50' : 'bg-black/20 group-hover:bg-transparent'}`} />
+
+        <RobustImage
+          src={imageUrl}
+          alt={project.title}
+          className={`w-full h-full object-cover transform transition-transform duration-500 ${isLocked ? 'grayscale' : 'group-hover:scale-105'}`}
           onErrorDisplay={<ListErrorDisplay />}
         />
+
+        {/* Lock overlay */}
+        {isLocked && (
+          <div className="absolute inset-0 z-20 flex flex-col items-center justify-center gap-2">
+            <div className="bg-black/70 backdrop-blur-sm rounded-full p-3 border border-red-500/40">
+              <Lock size={22} className="text-red-400" />
+            </div>
+            <span className="text-[10px] font-mono text-red-400/80 uppercase tracking-widest bg-black/60 px-2 py-0.5 rounded">
+              Restricted
+            </span>
+          </div>
+        )}
 
         {/* Date badge */}
         <div className="absolute top-3 right-3 z-20 bg-black/60 backdrop-blur-sm px-2 py-1 rounded text-xs text-gray-300 font-mono border border-white/10">
           {project.date}
         </div>
         {/* Category Badge */}
-        <div className="absolute bottom-3 left-3 z-20 bg-neon-blue/20 backdrop-blur-sm px-2 py-1 rounded text-xs text-neon-blue font-bold border border-neon-blue/30 uppercase tracking-wider">
+        <div className={`absolute bottom-3 left-3 z-20 backdrop-blur-sm px-2 py-1 rounded text-xs font-bold border uppercase tracking-wider ${
+          isLocked
+            ? 'bg-red-500/10 text-red-400/70 border-red-500/20'
+            : 'bg-neon-blue/20 text-neon-blue border-neon-blue/30'
+        }`}>
           {project.category.replace('-', ' ')}
         </div>
       </div>
@@ -53,9 +75,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) => {
       <div className="p-6 flex-1 flex flex-col">
         {/* Title Row with Icon */}
         <div className="flex items-center gap-2 mb-3">
-          {Icon && <Icon size={18} className="text-neon-blue" />}
-          
-          <h3 className="text-xl font-bold text-white group-hover:text-neon-blue transition-colors whitespace-pre-line">
+          {Icon && <Icon size={18} className={isLocked ? 'text-gray-500' : 'text-neon-blue'} />}
+
+          <h3 className={`text-xl font-bold whitespace-pre-line transition-colors ${
+            isLocked ? 'text-gray-400 group-hover:text-gray-300' : 'text-white group-hover:text-neon-blue'
+          }`}>
             {project.title}
           </h3>
         </div>
@@ -63,8 +87,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) => {
         {/* Tags */}
         <div className="flex flex-wrap gap-2 mb-4">
           {project.tags.map((tag) => (
-            <span 
-              key={tag} 
+            <span
+              key={tag}
               className="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-xs text-gray-400"
             >
               {tag}
@@ -73,14 +97,25 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) => {
         </div>
 
         {/* Description */}
-        <p className="text-gray-400 text-sm leading-relaxed mb-6 flex-1 line-clamp-3">
-          {project.description}
+        <p className={`text-sm leading-relaxed mb-6 flex-1 line-clamp-3 ${isLocked ? 'text-gray-600' : 'text-gray-400'}`}>
+          {isLocked ? project.lockedReason ?? 'This project is currently restricted from public access.' : project.description}
         </p>
 
         {/* Footer / Link */}
         <div className="mt-auto border-t border-white/5 pt-4 flex justify-between items-center">
-          <span className="text-xs text-gray-500 font-mono group-hover:text-neon-blue transition-colors">View Project Details</span>
-          <ExternalLink size={16} className="text-gray-500 group-hover:text-neon-blue transition-colors" />
+          {isLocked ? (
+            <>
+              <span className="text-xs text-red-500/60 font-mono flex items-center gap-1.5">
+                <Lock size={11} /> Access Restricted
+              </span>
+              <Lock size={14} className="text-red-500/40" />
+            </>
+          ) : (
+            <>
+              <span className="text-xs text-gray-500 font-mono group-hover:text-neon-blue transition-colors">View Project Details</span>
+              <ExternalLink size={16} className="text-gray-500 group-hover:text-neon-blue transition-colors" />
+            </>
+          )}
         </div>
       </div>
     </div>
