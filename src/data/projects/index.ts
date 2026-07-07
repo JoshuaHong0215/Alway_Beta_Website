@@ -22,8 +22,8 @@ import { smallWarehouseControl } from './robotics/smallWarehouseControl';
 import { opencvIbvsArm } from './robotics/opencv-ibvs-arm';
 import { yoloIbvsArm } from './robotics/yolo-ibvs-arm';
 
-
-
+// Software 프로젝트들
+import { libraryManagementSystem } from './software/library-management-system';
 
 // 카테고리별 프로젝트 배열
 export const architectureProjects: ProjectItem[] = [
@@ -42,15 +42,21 @@ export const roboticsProjects: ProjectItem[] = [
   yoloIbvsArm,
 ];
 
+export const softwareProjects: ProjectItem[] = [
+  libraryManagementSystem,
+];
+
 // 디버깅
 console.log('✅ [프로젝트 로딩 성공]');
 console.log('Architecture:', architectureProjects.length, 'projects');
 console.log('City Plan:', cityPlanProjects.length, 'projects');
 console.log('Robotics:', roboticsProjects.length, 'projects');
+console.log('Software:', softwareProjects.length, 'projects');
 
 // 모든 프로젝트 통합
 export const projects: ProjectItem[] = [
-  ...architectureProjects,
-  ...cityPlanProjects,
   ...roboticsProjects,
+  ...softwareProjects,
+  ...cityPlanProjects,
+  ...architectureProjects,
 ];

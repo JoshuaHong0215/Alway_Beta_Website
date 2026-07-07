@@ -10,8 +10,28 @@ export const opencvIbvsArm: ProjectItem = {
   IBVS를 통해 카메라 중점과 물체 중점을 정렬한 후 TCP를 align하여 하강 및 피킹을 수행합니다.
 `,
   image: '',
-  tags: ['ROS2', 'OpenCV', 'IBVS'],
+  tags: ['ROS2', 'OpenCV', 'IBVS', 'Jetcobot'],
   date: '2026. 05 ~ 06',
   githubUrl: 'https://github.com/JoshuaHong0215/beep_jetcobot_ros2_opencv',
-  sections: [],
+  sections: [
+    {
+        category: 'Work',
+        title: 'Picking동작_01',
+        description: `OpenCV Contour로 물체 중점을 추출하고 IBVS로 정렬 후 하강하여 피킹하는 동작입니다.`,
+        video: 'opencv_ibvs_01.mp4',
+        vertical: true
+      },
+
+      {
+        category: 'Work',
+        title: 'Picking동작_02',
+        description: `다른 각도/위치에서의 피킹 동작입니다.`,
+        video: 'opencv_ibvs_02.mp4',
+        vertical: true
+      },
+
+
+
+
+  ],
 };

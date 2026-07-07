@@ -1,4 +1,4 @@
-export type ProjectCategory = 'all' | 'architecture' | 'city-plan' | 'robotics';
+export type ProjectCategory = 'all' | 'robotics' | 'software' | 'city-plan' | 'architecture';
 
 // Tesla 스타일 섹션 타입 추가
 export interface ProjectSection {
@@ -10,6 +10,7 @@ export interface ProjectSection {
   youtubeId?: string;
   wide?: boolean;
   wideText?: boolean;
+  vertical?: boolean;
 }
 
 export interface ProjectItem {

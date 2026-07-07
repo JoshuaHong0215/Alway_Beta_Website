@@ -5,6 +5,19 @@ import { projects as allProjects } from '../data/projects';
 import { getProjectImage } from '../utils/imageHelper';
 import { RobustImage } from '../components/ui/RobustImage';
 
+const formatText = (text: string) => {
+  return text.split(/(\*\*[^*]+\*\*)/g).map((part, i) => {
+    if (part.startsWith('**') && part.endsWith('**')) {
+      return (
+        <strong key={i} className="text-white font-semibold">
+          {part.slice(2, -2)}
+        </strong>
+      );
+    }
+    return part;
+  });
+};
+
 const ProjectDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
@@ -133,7 +146,7 @@ const ProjectDetail: React.FC = () => {
             INTRO
           </div>
           <div className="text-gray-300 text-lg leading-relaxed whitespace-pre-line max-w-5xl font-normal">
-            {(project.intro || project.description).trim()}
+            {formatText((project.intro || project.description).trim())}
           </div>
         </div>
       </div>
@@ -194,7 +207,7 @@ const ProjectDetail: React.FC = () => {
                   </h2>
                   {section.description.trim() && (
                     <p className="text-gray-400 text-lg leading-relaxed whitespace-pre-line">
-                      {section.description.trim()}
+                      {formatText(section.description.trim())}
                     </p>
                   )}
                 </div>
@@ -221,7 +234,7 @@ const ProjectDetail: React.FC = () => {
                   {section.title}
                 </h2>
                 <p className="text-gray-400 text-lg leading-relaxed whitespace-pre-line">
-                  {section.description}
+                  {formatText(section.description)}
                 </p>
               </div>
 
@@ -241,7 +254,9 @@ const ProjectDetail: React.FC = () => {
                     />
                   </div>
                 ) : section.video ? (
-                  <div className="rounded-2xl overflow-hidden aspect-video">
+                  <div className={`rounded-2xl overflow-hidden ${
+                    section.vertical ? 'aspect-[9/16] max-w-sm mx-auto' : 'aspect-video'
+                  }`}>
                     <video
                       autoPlay
                       loop

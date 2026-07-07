@@ -13,7 +13,7 @@ export const yoloIbvsArm: ProjectItem = {
   ,
 
   image: 'yolo-ibvs-banner.png',
-  tags: ['ROS2', 'YOLO', 'IBVS', 'Roboflow'],
+  tags: ['ROS2', 'YOLO', 'IBVS', 'Roboflow', 'jetcobot', 'Tailscale'],
   date: '2026. 05 ~ 06',
   githubUrl: 'https://github.com/JoshuaHong0215/beep_jetcobot_ros2_yolo',
   
@@ -54,10 +54,7 @@ export const yoloIbvsArm: ProjectItem = {
         video: 'mode1_출고.mp4'
       },
 
-      
-
-      
-
+    
       {
         category: 'Visual Servoing',
         title: 'Servoing Graph를 통한 수렴성 확인',
@@ -69,7 +66,9 @@ export const yoloIbvsArm: ProjectItem = {
         category: 'AI Model',
         title: 'Roboflow를 활용한 YOLO 학습 모델 생성',
         description: `학습 데이터셋은 영상 촬영 후 프레임 단위로 쪼개 Labeling을 진행하였습니다.
-        또한, Augmentation적용을 통해 빛으로 인한 채도의 변화에도 유연한 대응이 가능했습니다.
+        초기 모델에서 빛의 변화에 따른 **채도 변화로 인한 인식률 저하가 발생**하여, 
+        **Augmentation** 기능을 활용해 학습데이터를 증강시켜 모델을 재학습 시킨 결과
+        빛으로 인한 채도의 변화에도 유연한 대응이 가능했습니다.
         mAP50-95의 수치가 0.995라는 높은 수치를 보였으나 통제 된 환경과 단순한 형태, 뚜렷한 색상대비등 완벽한 여건에서의 학습인 점을 감안해야했습니다. `,
         image: 'detect_object.png'
       },
@@ -77,7 +76,7 @@ export const yoloIbvsArm: ProjectItem = {
       {
         category: 'Network',
         title: 'Network Structure',
-        description: `AI Server Computer와 Laptop, Robot들을 Tailscale로 묶어 Mesh VPN Network를 
+        description: `AI Server Computer와 Laptop, Robot들을 **Tailscale**로 묶어 Mesh VPN Network를 
         형성하였습니다`,
         image: 'network_structure.png'
       },

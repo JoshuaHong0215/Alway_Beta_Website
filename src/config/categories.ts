@@ -1,10 +1,11 @@
-import { Layout, Map, Cpu, LucideIcon } from 'lucide-react';
+import { Layout, Map, Cpu, Code, LucideIcon } from 'lucide-react';
 import { ProjectCategory } from '../types';
 
 export interface CategoryConfig {
   id: Exclude<ProjectCategory, 'all'>;
   label: string;
   icon: LucideIcon;
+  navLabel?: string;
 }
 
 export const CATEGORIES: CategoryConfig[] = [
@@ -12,6 +13,12 @@ export const CATEGORIES: CategoryConfig[] = [
     id: 'robotics',
     label: 'Robotics',
     icon: Cpu,
+  },
+  {
+    id: 'software',
+    label: 'Software',
+    icon: Code,
+    navLabel: 'Software Dev',
   },
   {
     id: 'city-plan',
@@ -40,8 +47,8 @@ export const filterCategories = [
 // 네비게이션용 카테고리 목록
 export const navCategories = [
   { label: 'All Projects', category: 'all' as ProjectCategory },
-  ...CATEGORIES.map(cat => ({ 
-    label: `${cat.label} Design`, 
-    category: cat.id as ProjectCategory 
+  ...CATEGORIES.map(cat => ({
+    label: cat.navLabel ?? `${cat.label} Design`,
+    category: cat.id as ProjectCategory
   })),
 ];
