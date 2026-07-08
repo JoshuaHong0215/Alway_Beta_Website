@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Calendar, Layers, RefreshCw, FileText, Github } from 'lucide-react';
+import { ArrowLeft, Calendar, Layers, RefreshCw, FileText, Github, AlertTriangle, Wrench, CheckCircle2 } from 'lucide-react';
 import { projects as allProjects } from '../data/projects';
 import { getProjectImage } from '../utils/imageHelper';
 import { RobustImage } from '../components/ui/RobustImage';
@@ -18,13 +18,54 @@ const formatText = (text: string) => {
   });
 };
 
+const ProblemSolutionCard: React.FC<{ problem?: string; solution?: string; result?: string }> = ({ problem, solution, result }) => (
+  <div className="space-y-4">
+    {problem && (
+      <div className="flex gap-3 p-4 rounded-xl bg-red-500/5 border border-red-500/20">
+        <AlertTriangle size={18} className="text-red-400 shrink-0 mt-0.5" />
+        <div>
+          <p className="text-xs font-mono uppercase tracking-widest text-red-400 mb-1">Problem</p>
+          <p className="text-gray-300 text-lg leading-relaxed whitespace-pre-line">{formatText(problem)}</p>
+        </div>
+      </div>
+    )}
+    {solution && (
+      <div className="flex gap-3 p-4 rounded-xl bg-neon-blue/5 border border-neon-blue/20">
+        <Wrench size={18} className="text-neon-blue shrink-0 mt-0.5" />
+        <div>
+          <p className="text-xs font-mono uppercase tracking-widest text-neon-blue mb-1">Solution</p>
+          <p className="text-gray-300 text-lg leading-relaxed whitespace-pre-line">{formatText(solution)}</p>
+        </div>
+      </div>
+    )}
+    {result && (
+      <div className="flex gap-3 p-4 rounded-xl bg-green-500/5 border border-green-500/20">
+        <CheckCircle2 size={18} className="text-green-400 shrink-0 mt-0.5" />
+        <div>
+          <p className="text-xs font-mono uppercase tracking-widest text-green-400 mb-1">Result</p>
+          <p className="text-gray-300 text-lg leading-relaxed whitespace-pre-line">{formatText(result)}</p>
+        </div>
+      </div>
+    )}
+  </div>
+);
+
 const ProjectDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const [debugInfo, setDebugInfo] = useState<string>('');
   const [isError, setIsError] = useState(false);
+  const [activeTocId, setActiveTocId] = useState<string>('');
 
   const project = allProjects.find(p => p.id === id);
+
+  const regularSections = project?.sections?.filter(s => !(s.problem || s.solution || s.result)) ?? [];
+  const troubleshootingSections = project?.sections?.filter(s => s.problem || s.solution || s.result) ?? [];
+
+  const tocItems = [
+    ...regularSections.map((s, i) => ({ id: `section-${i}`, label: s.title })),
+    ...(troubleshootingSections.length > 0 ? [{ id: 'troubleshooting', label: '문제 해결 과정' }] : []),
+  ];
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -34,6 +75,29 @@ const ProjectDetail: React.FC = () => {
     setDebugInfo('');
     setIsError(false);
   }, [project]);
+
+  useEffect(() => {
+    if (tocItems.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveTocId(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: '-20% 0px -70% 0px' }
+    );
+
+    tocItems.forEach((item) => {
+      const el = document.getElementById(item.id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [project?.id]);
 
   if (!project) {
     return (
@@ -52,7 +116,11 @@ const ProjectDetail: React.FC = () => {
   }
 
   const mainImageUrl = getProjectImage(project, project.image);
-  
+
+  const scrollToSection = (sectionId: string) => {
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
   const DetailErrorDisplay = () => (
     <div className="w-full h-full flex flex-col items-center justify-center text-gray-400 bg-white/5 border border-white/10 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-red-900/20 to-black pointer-events-none"></div>
@@ -148,6 +216,19 @@ const ProjectDetail: React.FC = () => {
           <div className="text-gray-300 text-lg leading-relaxed whitespace-pre-line max-w-5xl font-normal">
             {formatText((project.intro || project.description).trim())}
           </div>
+
+          {project.goal && project.goal.length > 0 && (
+            <>
+              <div className="text-neon-blue font-mono font-semibold tracking-widest text-sm uppercase align-top pt-1">
+                GOAL
+              </div>
+              <ul className="text-gray-300 text-lg leading-relaxed list-disc list-inside space-y-1 font-normal">
+                {project.goal.map((g, i) => (
+                  <li key={i}>{formatText(g)}</li>
+                ))}
+              </ul>
+            </>
+          )}
         </div>
       </div>
 
@@ -191,8 +272,10 @@ const ProjectDetail: React.FC = () => {
         </div>
       )}
 
-      {project.sections && project.sections.map((section, index) => (
-        <section key={index} className="mt-20 lg:mt-28">
+      {project.sections && (
+        <>
+          {regularSections.map((section, index) => (
+        <section key={index} id={`section-${index}`} className="mt-20 lg:mt-28">
           <div className="container mx-auto px-6">
 
             {section.wide ? (
@@ -301,7 +384,50 @@ const ProjectDetail: React.FC = () => {
             )}
           </div>
         </section>
-      ))}
+          ))}
+
+          {troubleshootingSections.length > 0 && (
+            <section id="troubleshooting" className="mt-20 lg:mt-28">
+              <div className="container mx-auto px-6">
+                <p className="text-neon-blue font-mono text-sm font-semibold mb-3 uppercase tracking-widest">
+                  Troubleshooting
+                </p>
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-10 tracking-tight">
+                  문제 해결 과정
+                </h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {troubleshootingSections.map((section, i) => (
+                    <div key={i} className="rounded-2xl border border-white/10 bg-white/[0.02] p-6">
+                      <h3 className="text-2xl font-bold text-white mb-4">{section.title}</h3>
+                      <ProblemSolutionCard problem={section.problem} solution={section.solution} result={section.result} />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+          )}
+        </>
+      )}
+
+      {/* TOC Sidebar */}
+      {tocItems.length > 0 && (
+        <nav className="hidden xl:flex flex-col gap-1 fixed right-6 top-1/2 -translate-y-1/2 z-40 max-h-[70vh] overflow-y-auto max-w-[220px]">
+          {tocItems.map((item) => (
+            <button
+              key={item.id}
+              onClick={() => scrollToSection(item.id)}
+              className={`text-left text-sm leading-snug px-3 py-2 rounded-lg truncate transition-colors ${
+                activeTocId === item.id
+                  ? 'text-neon-blue bg-neon-blue/10 font-semibold'
+                  : 'text-gray-300 hover:text-white'
+              }`}
+              title={item.label}
+            >
+              {item.label}
+            </button>
+          ))}
+        </nav>
+      )}
 
       {/* Bottom Spacing */}
       <div className="h-32"></div>

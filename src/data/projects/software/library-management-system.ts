@@ -2,19 +2,33 @@ import { ProjectItem } from '../../../types';
 
 export const libraryManagementSystem: ProjectItem = {
   id: 'library-management-system',
+
   category: 'software',
+
   title: 'C++을 활용한 도서관 관리 시스템',
+
   description: 'C++로 구현한 콘솔 기반 도서관 관리 시스템',
+
   intro: `본 프로젝트는 C++로 구현한 콘솔 기반 도서관 관리 시스템입니다.
   도서 등록·검색·대출·반납 등 도서관 운영에 필요한 핵심 기능을 객체지향 설계 원칙에 따라 구현하며, 3인이 기능 단위로 역할을 분담하여 
   협업 개발합니다.
 
-  영역: 도서 관리 + 카테고리 분류 / 회원 관리 + 벌금 계산 / 대출·반납 + 검색·통계
+  개발 영역: 도서 관리 + 카테고리 분류 / 회원 관리 + 벌금 계산 / 대출·반납 + 검색·통계
 
   **담당 영역: 회원 관리 + 벌금 계산**`,
+
+  goal: [
+    '실제 도서관 업무 흐름을 소프트웨어로 구현',
+    'C++ 클래스 설계, 상속, 파일 입출력 등 핵심 개념 실습', 
+    'Git을 활용한 팀 협업 및 버전 관리 경험 습득'
+  ],
+
   image: 'main.png',
+
   tags: ['C++', 'OOP', 'File I/O', 'Git', 'Team Project'],
+
   date: '2026. 07.',
+  
   githubUrl: 'https://github.com/ddaammss/library-management-system',
 
   sections: [

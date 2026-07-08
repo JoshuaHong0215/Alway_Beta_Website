@@ -11,6 +11,9 @@ export interface ProjectSection {
   wide?: boolean;
   wideText?: boolean;
   vertical?: boolean;
+  problem?: string;
+  solution?: string;
+  result?: string;
 }
 
 export interface ProjectItem {
@@ -18,6 +21,7 @@ export interface ProjectItem {
   title: string;
   description: string;
   intro?: string;
+  goal?: string[];
   image: string;
   gallery?: string[];
   tags: string[];
