@@ -42,7 +42,8 @@ export const opencvIbvsArm: ProjectItem = {
     {
         category: 'Work',
         title: 'Picking동작_01',
-        description: `OpenCV Contour로 물체 중점을 추출하고 IBVS로 정렬 후 하강하여 피킹하는 동작입니다.`,
+        description: `OpenCV Contour로 물체 중점을 추출하고 IBVS로 정렬 후 하강하여 피킹하는 동작입니다.
+        모션 제어는 **Elephant Robotics에서 제공하는 API를 활용**했습니다.`,
         video: 'opencv_ibvs_01.mp4',
         vertical: true
       },
@@ -60,6 +61,7 @@ export const opencvIbvsArm: ProjectItem = {
       {
         category: 'Troubleshooting',
         title: 'Visual Servoing 정렬 오차 발생',
+        image: 'crossline.png',
         description: '',
         problem: `Visual Servoing 시 객체를 카메라 중앙(320.240)에 맞춰도 카메라 중심과 실제로 매우 어긋나는 정렬 오차가 발생했습니다.`,
         solution: `Camera Calibration file을 다시 확인하여 principal point를 확인했고 실제 중심은 356.7, 195.2에 있음을 확인했습니다.
@@ -72,8 +74,10 @@ export const opencvIbvsArm: ProjectItem = {
         title: 'Object Detecting능력 저하',
         description: '',
         problem: `Object가 감지됐다 안됐다하는 증상이 반복적으로 발생했습니다.`,
-        solution: `실습실 불을 끄고 동작 시킨 결과 증상이 완화된걸로 봐서 실제 환경 조명변화에 취약하다고 판단, YOLO Detecting으로 전환하였습니다.`,
-        result: `OpenCV대비 Detecting능력 대폭 상승하였습니다`,
+        solution: `실습실 불을 끄고 동작 시킨 결과 증상이 완화된걸로 봐서 실제 환경 조명변화에 
+        취약하다고 판단하였고 기존 단조로운 Detecting에서 나아가 다양한 조건의 Detecting을 위해 YOLO Detecting으로 전환하였습니다.`,
+        result: `OpenCV대비 Detecting능력 대폭 상승하였습니다. 
+        자세한 내용은 YOLO와 IBVS를 활용한 로봇팔 제어에서 확인할 수 있습니다.`,
       },
 
 

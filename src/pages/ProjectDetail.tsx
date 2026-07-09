@@ -399,6 +399,15 @@ const ProjectDetail: React.FC = () => {
                   {troubleshootingSections.map((section, i) => (
                     <div key={i} className="rounded-2xl border border-white/10 bg-white/[0.02] p-6">
                       <h3 className="text-2xl font-bold text-white mb-4">{section.title}</h3>
+                      {section.image && typeof section.image === 'string' && (
+                        <div className="rounded-xl overflow-hidden mb-4 bg-black/30">
+                          <RobustImage
+                            src={getProjectImage(project, section.image)}
+                            alt={section.title}
+                            className="w-full h-full object-contain"
+                          />
+                        </div>
+                      )}
                       <ProblemSolutionCard problem={section.problem} solution={section.solution} result={section.result} />
                     </div>
                   ))}

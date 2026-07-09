@@ -105,8 +105,6 @@ export const yoloIbvsArm: ProjectItem = {
 
 
 
-
-
       {
         category: 'Troubleshooting',
         title: '조명 변화에 따른 물체 인식률 저하 문제 해결',
