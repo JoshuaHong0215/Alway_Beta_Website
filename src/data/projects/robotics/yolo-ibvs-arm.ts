@@ -7,11 +7,10 @@ export const yoloIbvsArm: ProjectItem = {
   
   title: 'YOLO와 IBVS를 활용한 로봇팔 제어',
   
-  description: '',
+  description: 'Addinedu, PinkLAB 팀프로젝트에서 로봇팔 피킹 파이프라인을 담당',
   
-  intro: `Detecting성능의 향상과 Network Structure을 구현해보고 싶어 기존 OpenCV의 방식에서 더 나아가 YOLO를 활용한 
+  intro: `Detecting성능의 향상과 Network Structure의 구축 경험을 위해 기존 OpenCV의 방식에서 더 나아가 YOLO를 활용한 
   Detecting + IBVS Picking System을 구현하였습니다. 
-  비교적 단순한 객체를 대상으로 진행하기에 개발속도, 조건등을 고려할 때 PBVS보다 IBVS가 적합하다고 판단하여 IBVS를 선택하였습니다.
   Roboflow로 커스텀 데이터셋을 구축하고 YOLOv8 모델을 학습시켜 물체를 탐지합니다.
   탐지된 바운딩박스의 중점을 추출하고, IBVS를 통해 카메라 중점과 정렬한 후 TCP를 align하여 하강 및 피킹을 수행합니다.`
   ,
@@ -101,12 +100,19 @@ export const yoloIbvsArm: ProjectItem = {
         image: 'ping_test.png'
       },
 
+
+
+
+
+
+
+
       {
         category: 'Troubleshooting',
         title: '조명 변화에 따른 물체 인식률 저하 문제 해결',
         description: '',
-        problem: `초기 학습된 Yolo모델에서 빛의 변화에 따른 **채도 변화로 인해 오브젝트 디텍팅 능력이 저하**되는 문제가 발생했습니다.`,
-        solution: `**Augmentation** 기능을 적용해 학습 데이터를 증강시키고 모델을 다시 학습시켰습니다.`,
+        problem: `초기 학습된 Yolo모델에서 빛의 변화에 따른 **채도 변화로 인해 오브젝트 디텍팅 능력이 저하**되는 문제, 특히 yellow box에 심한 인식률 저하 문제가 발생했습니다.`,
+        solution: `Hue/Saturation에 해당하는 **Augmentation** 기능을 적용해 학습 데이터를 증강시키고 모델을 다시 학습시켰습니다.`,
         result: `조명 변화로 인한 채도 변화에도 안정적으로 대응 가능한 모델을 확보했습니다.`,
       },
 
@@ -138,15 +144,7 @@ export const yoloIbvsArm: ProjectItem = {
         result: `수동으로 모든 joint를 영점에 맞춰가며 수동 Calibration진행하여 해결하였습니다.`,
       },
 
-      {
-        category: 'Troubleshooting',
-        title: 'Visual Servoing 정렬 오차 발생',
-        description: '',
-        problem: `Visual Servoing 시 객체를 카메라 중앙(320.240)에 맞춰도 카메라 중심과 실제로 매우 어긋나는 정렬 오차가 발생했습니다.`,
-        solution: `Camera Calibration file을 다시 확인하여 principal point를 확인했고 실제 중심은 356.7, 195.2에 있음을 확인했습니다.
-        따라서, 기준 십자선과 IBVS오차 계산 기준점을 Calibration된 Principal point로 수정했습니다.`,
-        result: `정렬 오차의 근본 원인을 제거해 Pickup 정확도를 개선했습니다.`,
-      },
+      
 
     ]
 };

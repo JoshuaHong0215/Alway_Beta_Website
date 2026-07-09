@@ -4,9 +4,10 @@ export const smallWarehouseControl: ProjectItem = {
     id: 'smallWarehouseControl',
     category: 'robotics',
     title: '[SLAM,Nav2] 물류창고 관제시스템',
-    description: 'IsaacSIM을 활용한 서버와의 관제시스템 구축 및 하드웨어 결함 분석',
+    description: 'Isaac Sim을 활용한 서버와의 관제시스템 구축 및 하드웨어 결함 분석',
     intro: `
-      본 프로젝트는 물리적 실습환경의 제약을 극복하고 확장성을 검증하기 위해 실제 환경 기반의 시뮬레이션 환경을 구축했습니다.
+      본 프로젝트는 연희직업전문학교 AI 스마트 모빌리티과정에서 진행한 소규모 물류창고 관제시스템 프로젝트의 일부분으로서 
+      물리적 실습환경의 제약을 극복하고 확장성을 검증하기 위해 실제 환경 기반의 시뮬레이션 환경을 구축했습니다.
       3D modeling program으로 실물 turtlebot의 운용환경을 구현하였고 Isaacsim으로 실물 로봇과 시뮬레이션 로봇에서의 데이터 차이를 확인하였습니다.
      
       시뮬레이션의 장점이 극대화 되려면 비교적 간단한 Turtlebot이 아니라 더 크고 복잡한 로봇까지 다뤘어야 그 의미가 있었겠지만

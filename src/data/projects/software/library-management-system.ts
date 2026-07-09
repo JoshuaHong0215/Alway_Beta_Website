@@ -27,7 +27,7 @@ export const libraryManagementSystem: ProjectItem = {
 
   tags: ['C++', 'OOP', 'File I/O', 'Git', 'Team Project'],
 
-  date: '2026. 07.',
+  date: '2026. 07. 07',
   
   githubUrl: 'https://github.com/ddaammss/library-management-system',
 

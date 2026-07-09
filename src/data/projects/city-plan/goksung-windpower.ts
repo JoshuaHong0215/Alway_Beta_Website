@@ -17,7 +17,7 @@ export const goksungWindpower: ProjectItem = {
     image: 'goksung01.png',
     tags: ['City Plan', 'UnrealEngine', 'Sketchup', 'AutoCAD', 'QGIS'],
     
-    date: '2024. Today',
+    date: '2024. 05',
     
     sections: [
       {

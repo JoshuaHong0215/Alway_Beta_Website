@@ -6,6 +6,17 @@ import { projects as allProjects } from '../data/projects';
 import ProjectCard from '../features/project/ProjectCard';
 import { filterCategories } from '../config/categories';
 
+// '2026. 05 ~ 06', '2024. Today', '2025. 11. 27' 등 자유 형식 날짜를 정렬 가능한 값으로 변환
+const parseDateValue = (dateStr: string): number => {
+  const yearMatch = dateStr.match(/\d{4}/);
+  const year = yearMatch ? parseInt(yearMatch[0], 10) : 0;
+  const rest = yearMatch ? dateStr.slice(yearMatch.index! + 4) : '';
+  const numbers = rest.match(/\d{1,2}/g)?.map(Number) ?? [];
+  const month = numbers[0] ?? 12;
+  const day = numbers[1] ?? 1;
+  return year * 10000 + month * 100 + day;
+};
+
 const Projects: React.FC = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
@@ -17,9 +28,10 @@ const Projects: React.FC = () => {
     setSelectedCategory(category);
   }, [searchParams]);
 
-  const filteredProjects = selectedCategory === 'all'
+  const filteredProjects = (selectedCategory === 'all'
     ? allProjects
-    : allProjects.filter(p => p.category === selectedCategory);
+    : allProjects.filter(p => p.category === selectedCategory)
+  ).slice().sort((a, b) => parseDateValue(b.date) - parseDateValue(a.date));
 
   const handleCategoryChange = (category: ProjectCategory) => {
     setSelectedCategory(category);
