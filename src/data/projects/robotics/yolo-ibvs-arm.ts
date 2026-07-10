@@ -53,16 +53,16 @@ export const yoloIbvsArm: ProjectItem = {
       {
         category: 'Work',
         title: '입고 동작',
-        description: `yellow box입고 영상입니다
-        task_id: 2, mode: 0`,
+        description: `yellow box입고 영상입니다(task_id: 2, mode: 0)
+        모션 제어는 Elephant Robotics에서 제공한 API를 활용했습니다.`,
         video: 'mode0_입고.mp4'
       },
 
       {
         category: 'Work',
         title: '출고 동작',
-        description: `red box출고 영상입니다
-        task_id: 1, mode: 1`,
+        description: `red box출고 영상입니다(task_id: 1, mode: 1)
+        `,
         video: 'mode1_출고.mp4'
       },
 
@@ -70,7 +70,7 @@ export const yoloIbvsArm: ProjectItem = {
       {
         category: 'Visual Servoing',
         title: 'Servoing Graph를 통한 수렴성 확인',
-        description: `본 데이터는 mode 0 입고에서의 실측 데이터로서 초기 +280px이던 e_y 오차가 8회 보정을 거쳐 수렴 범위 내로 진입한 것을 확인할 수 있었습니다. `,
+        description: `본 데이터는 **mode 0 입고에서의 실측 데이터**로서 초기 +280px이던 e_y 오차가 **8회 보정**을 거쳐 수렴 범위 내로 진입한 것을 확인할 수 있었습니다. `,
         image: 'servo_convergence.png'
       },
 
