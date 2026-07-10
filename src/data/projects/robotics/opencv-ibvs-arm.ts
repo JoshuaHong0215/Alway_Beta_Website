@@ -30,7 +30,7 @@ export const opencvIbvsArm: ProjectItem = {
     'ROS2 기반 카메라-로봇 통신 구조 설계 및 실시간 제어 시스템 경험 습득'
   ],
 
-  image: '',
+  image: 'yolo-ibvs-banner.png',
   
   tags: ['ROS2', 'OpenCV', 'IBVS', 'Jetcobot'],
   
