@@ -295,12 +295,40 @@ const ProjectDetail: React.FC = () => {
                   )}
                 </div>
                 <div className="rounded-2xl overflow-hidden w-full">
-                  <RobustImage
-                    src={getProjectImage(project, section.image as string)}
-                    alt={section.title}
-                    className="w-full h-full object-cover"
-                    style={{objectPosition: 'center 49.9%'}}
-                  />
+                  {section.youtubeId ? (
+                    <div className="aspect-video">
+                      <iframe
+                        width="100%"
+                        height="100%"
+                        src={`https://www.youtube.com/embed/${section.youtubeId}?autoplay=1&mute=1&loop=1&playlist=${section.youtubeId}&controls=0&rel=0`}
+                        frameBorder="0"
+                        allow="autoplay; encrypted-media"
+                        allowFullScreen
+                        style={{ pointerEvents: 'none' }}
+                        title={section.title}
+                      />
+                    </div>
+                  ) : section.video ? (
+                    <div className={section.vertical ? 'aspect-[9/16] max-w-sm mx-auto' : 'aspect-video'}>
+                      <video
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-full h-full object-cover"
+                        src={getProjectImage(project, section.video)}
+                      >
+                        Your browser does not support the video tag.
+                      </video>
+                    </div>
+                  ) : (
+                    <RobustImage
+                      src={getProjectImage(project, section.image as string)}
+                      alt={section.title}
+                      className="w-full h-full object-cover"
+                      style={{objectPosition: 'center 49.9%'}}
+                    />
+                  )}
                 </div>
               </div>
             ) : (

@@ -21,6 +21,7 @@ import { spotATSSystem } from './robotics/spot-ats-system';
 import { smallWarehouseControl } from './robotics/smallWarehouseControl';
 import { opencvIbvsArm } from './robotics/opencv-ibvs-arm';
 import { yoloIbvsArm } from './robotics/yolo-ibvs-arm';
+import { gaussianSplattingIsaacSim } from './robotics/gaussian-splatting-isaac-sim';
 
 // Software 프로젝트들
 import { libraryManagementSystem } from './software/library-management-system';
@@ -40,6 +41,7 @@ export const roboticsProjects: ProjectItem[] = [
   smallWarehouseControl,
   opencvIbvsArm,
   yoloIbvsArm,
+  gaussianSplattingIsaacSim,
 ];
 
 export const softwareProjects: ProjectItem[] = [

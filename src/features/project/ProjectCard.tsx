@@ -89,7 +89,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) => {
           {project.tags.map((tag) => (
             <span
               key={tag}
-              className="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-xs text-gray-400"
+              className="px-2 py-0.5 rounded-md bg-neon-blue/20 border border-neon-blue/40 text-xs text-neon-blue font-medium"
             >
               {tag}
             </span>

@@ -40,14 +40,16 @@ export const goksungWindpower: ProjectItem = {
         category: 'Final Output',
         title: 'PCG설계를 활용하여 사실에 기반한 3D Analysis',
         description: ``,
-        image: 'goksung02.png'
+        image: 'goksung02.png',
+        wide: true
       },
       
       {
         category: 'Final Output',
         title: 'PCG설계를 활용하여 사실에 기반한 3D Analysis',
         description: ``,
-        image: 'goksung03.png'
+        image: 'goksung03.png',
+        wide: true
       }  
     ]
 
