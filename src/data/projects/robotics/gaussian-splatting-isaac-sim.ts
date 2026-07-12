@@ -30,7 +30,7 @@ export const gaussianSplattingIsaacSim: ProjectItem = {
       category: 'Demo',
       title: '3D 복원결과',
       description: `Gaussian Splatting으로 복원한 Garden Scene을 Isaac Sim으로 Import한 후 
-      Camera View로 이동하며 촬영한 영상입니다.`,
+      Camera View로 이동하며 촬영한 영상입니다.ㅋ`,
       video: 'recording.mp4',
       wide: true
     },
