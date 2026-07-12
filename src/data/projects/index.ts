@@ -48,17 +48,27 @@ export const softwareProjects: ProjectItem[] = [
   libraryManagementSystem,
 ];
 
+// CMS(관리자 페이지)로 추가된 프로젝트들 (content/projects/*.json)
+const cmsModules = import.meta.glob('../../../content/projects/*.json', { eager: true }) as Record<string, { default: ProjectItem }>;
+export const cmsProjects: ProjectItem[] = Object.values(cmsModules).map((mod) => mod.default);
+
 // 디버깅
 console.log('✅ [프로젝트 로딩 성공]');
 console.log('Architecture:', architectureProjects.length, 'projects');
 console.log('City Plan:', cityPlanProjects.length, 'projects');
 console.log('Robotics:', roboticsProjects.length, 'projects');
 console.log('Software:', softwareProjects.length, 'projects');
+console.log('CMS:', cmsProjects.length, 'projects');
 
-// 모든 프로젝트 통합
-export const projects: ProjectItem[] = [
+// 모든 프로젝트 통합 (코드로 등록한 것 + CMS로 추가한 것, id 중복 시 CMS 쪽 우선)
+const hardcodedProjects: ProjectItem[] = [
   ...roboticsProjects,
   ...softwareProjects,
   ...cityPlanProjects,
   ...architectureProjects,
+];
+
+export const projects: ProjectItem[] = [
+  ...hardcodedProjects.filter(p => !cmsProjects.some(cp => cp.id === p.id)),
+  ...cmsProjects,
 ];

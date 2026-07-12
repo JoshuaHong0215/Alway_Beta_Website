@@ -1,0 +1,60 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/projects/uploads"
+public_folder: "/projects/uploads"
+
+collections:
+  - name: "projects"
+    label: "Projects"
+    folder: "content/projects"
+    create: true
+    slug: "{{fields.id}}"
+    extension: "json"
+    format: "json"
+    fields:
+      - { label: "ID (URL slug, 영문/하이픈만)", name: "id", widget: "string" }
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options: ["robotics", "software", "city-plan", "architecture"]
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Description (목록 카드용 한 줄 요약)", name: "description", widget: "text" }
+      - { label: "Intro (상세페이지용 본문)", name: "intro", widget: "text", required: false }
+      - label: "Goal (목표, 항목별로 추가)"
+        name: "goal"
+        widget: "list"
+        required: false
+        field: { label: "항목", name: "item", widget: "string" }
+      - { label: "Banner Image", name: "image", widget: "image" }
+      - label: "Gallery"
+        name: "gallery"
+        widget: "list"
+        required: false
+        field: { label: "Image", name: "img", widget: "image" }
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        field: { label: "Tag", name: "tag", widget: "string" }
+      - { label: "Date (예: 2026. 07.)", name: "date", widget: "string" }
+      - { label: "GitHub URL", name: "githubUrl", widget: "string", required: false }
+      - { label: "Locked (접근 제한)", name: "locked", widget: "boolean", required: false, default: false }
+      - { label: "Locked Reason", name: "lockedReason", widget: "string", required: false }
+      - label: "Sections (상세페이지 섹션들)"
+        name: "sections"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Category", name: "category", widget: "string" }
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text", required: false }
+          - { label: "Image", name: "image", widget: "image", required: false }
+          - { label: "Video", name: "video", widget: "file", required: false }
+          - { label: "YouTube ID", name: "youtubeId", widget: "string", required: false }
+          - { label: "Wide layout (풀width)", name: "wide", widget: "boolean", required: false, default: false }
+          - { label: "Wide text (풀width 텍스트)", name: "wideText", widget: "boolean", required: false, default: false }
+          - { label: "Vertical video (세로 영상)", name: "vertical", widget: "boolean", required: false, default: false }
+          - { label: "Problem (트러블슈팅 - 문제)", name: "problem", widget: "text", required: false }
+          - { label: "Solution (트러블슈팅 - 해결)", name: "solution", widget: "text", required: false }
+          - { label: "Result (트러블슈팅 - 결과)", name: "result", widget: "text", required: false }
