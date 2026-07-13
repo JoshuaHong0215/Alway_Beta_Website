@@ -30,7 +30,7 @@ collections:
         widget: "list"
         required: false
         field: { label: "항목", name: "item", widget: "string" }
-      - { label: "Banner Image", name: "image", widget: "image" }
+      - { label: "Banner Image", name: "image", widget: "image", required: false }
       - label: "Gallery"
         name: "gallery"
         widget: "list"
