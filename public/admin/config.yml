@@ -19,6 +19,7 @@ collections:
     format: "json"
     filter: { field: "category", value: "robotics" }
     sortable_fields: ["date"]
+    summary: "{{title}} · {{date}}"
     fields:
       - { label: "ID (URL slug, 영문/하이픈만)", name: "id", widget: "string" }
       - label: "Category"
@@ -77,6 +78,7 @@ collections:
     format: "json"
     filter: { field: "category", value: "software" }
     sortable_fields: ["date"]
+    summary: "{{title}} · {{date}}"
     fields:
       - { label: "ID (URL slug, 영문/하이픈만)", name: "id", widget: "string" }
       - label: "Category"
@@ -135,6 +137,7 @@ collections:
     format: "json"
     filter: { field: "category", value: "city-plan" }
     sortable_fields: ["date"]
+    summary: "{{title}} · {{date}}"
     fields:
       - { label: "ID (URL slug, 영문/하이픈만)", name: "id", widget: "string" }
       - label: "Category"
@@ -193,6 +196,7 @@ collections:
     format: "json"
     filter: { field: "category", value: "architecture" }
     sortable_fields: ["date"]
+    summary: "{{title}} · {{date}}"
     fields:
       - { label: "ID (URL slug, 영문/하이픈만)", name: "id", widget: "string" }
       - label: "Category"
