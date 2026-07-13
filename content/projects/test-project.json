@@ -1,16 +1,24 @@
 {
   "locked": false,
+  "intro": "test",
   "sections": [
     {
       "wide": false,
       "wideText": false,
-      "vertical": false
+      "vertical": false,
+      "category": "demi",
+      "title": "test",
+      "description": "This is test description"
     }
   ],
-  "id": "test-project",
-  "category": "robotics",
   "date": "2026.07",
+  "goal": [
+    "test1",
+    "test2",
+    "test3"
+  ],
   "title": "test",
+  "id": "test-project",
   "description": "test",
-  "intro": "test"
+  "category": "robotics"
 }
