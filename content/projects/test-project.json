@@ -8,7 +8,8 @@
       "vertical": false,
       "category": "demi",
       "title": "test",
-      "description": "This is test description"
+      "description": "This is test description",
+      "image": "/projects/uploads/spot.png"
     }
   ],
   "date": "2026.07",
@@ -18,7 +19,12 @@
     "test3"
   ],
   "title": "test",
+  "tags": [
+    "vercel",
+    "netlify"
+  ],
   "id": "test-project",
+  "image": "/projects/uploads/스크린샷-2026-01-22-13-46-16.png",
   "description": "test",
   "category": "robotics"
 }
