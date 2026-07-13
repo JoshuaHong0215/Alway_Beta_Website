@@ -9,44 +9,14 @@ import { ProjectItem } from '../../types';
  * 3. 해당 카테고리 배열에 추가
  */
 
-// Architecture 프로젝트들
-import { songdoPaulBasset } from './architecture/songdo-paulbasset';
+// 카테고리별 프로젝트 배열 (기존 프로젝트는 모두 content/projects/*.json으로 이전됨)
+export const architectureProjects: ProjectItem[] = [];
 
-// City Plan 프로젝트들  
-import { goksungWindpower } from './city-plan/goksung-windpower';
-import { pohangHakjeon } from './city-plan/pohang-hakjeon';
+export const cityPlanProjects: ProjectItem[] = [];
 
-// Robotics 프로젝트들
-import { spotATSSystem } from './robotics/spot-ats-system';
-import { smallWarehouseControl } from './robotics/smallWarehouseControl';
-import { opencvIbvsArm } from './robotics/opencv-ibvs-arm';
-import { yoloIbvsArm } from './robotics/yolo-ibvs-arm';
-import { gaussianSplattingIsaacSim } from './robotics/gaussian-splatting-isaac-sim';
+export const roboticsProjects: ProjectItem[] = [];
 
-// Software 프로젝트들
-import { libraryManagementSystem } from './software/library-management-system';
-
-// 카테고리별 프로젝트 배열
-export const architectureProjects: ProjectItem[] = [
-  songdoPaulBasset,
-];
-
-export const cityPlanProjects: ProjectItem[] = [
-  goksungWindpower,
-  pohangHakjeon,
-];
-
-export const roboticsProjects: ProjectItem[] = [
-  spotATSSystem,
-  smallWarehouseControl,
-  opencvIbvsArm,
-  yoloIbvsArm,
-  gaussianSplattingIsaacSim,
-];
-
-export const softwareProjects: ProjectItem[] = [
-  libraryManagementSystem,
-];
+export const softwareProjects: ProjectItem[] = [];
 
 // CMS(관리자 페이지)로 추가된 프로젝트들 (content/projects/*.json)
 const cmsModules = import.meta.glob('../../../content/projects/*.json', { eager: true }) as Record<string, { default: ProjectItem }>;

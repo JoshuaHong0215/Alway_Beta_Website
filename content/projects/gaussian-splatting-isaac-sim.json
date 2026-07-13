@@ -1,0 +1,24 @@
+{
+  "id": "gaussian-splatting-isaac-sim",
+  "category": "robotics",
+  "title": "Gaussian Splatting to Isaac Sim",
+  "description": "jpg기반 3D환경 구성",
+  "intro": "Jpg기반 3D 재구성 기술을 활용해 실제 공간을 사실적인 3D Scene으로 재현하고, 이를 Isaac Sim환경에 셋팅,\n  향후 직접 영상촬영 및 학습을 진행하여 3D환경 복원을 목표로 합니다",
+  "goal": [
+    "Dataset 수집 및 전처리 경험 습득",
+    "Jpg기반 3D 재구성 및 Isaac Sim 통합 파이프라인 핵심 개념 실습"
+  ],
+  "image": "gaussian_banner.png",
+  "tags": ["Isaac Sim", "Colmap", "3Dgrut"],
+  "date": "2026.07.11",
+  "githubUrl": "",
+  "sections": [
+    {
+      "category": "Demo",
+      "title": "3D 복원결과",
+      "description": "Gaussian Splatting으로 복원한 Garden Scene을 Isaac Sim으로 Import한 후 \n      Camera View로 이동하며 촬영한 영상입니다.",
+      "video": "recording.mp4",
+      "wide": true
+    }
+  ]
+}
