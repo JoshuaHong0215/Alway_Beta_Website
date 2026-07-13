@@ -7,5 +7,6 @@
       "vertical": false
     }
   ],
-  "id": "test-project"
+  "id": "test-project",
+  "category": "robotics"
 }
