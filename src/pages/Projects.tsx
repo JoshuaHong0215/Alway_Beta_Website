@@ -72,7 +72,7 @@ const Projects: React.FC = () => {
             <div className="space-y-2">
               <h3 className="text-white font-bold text-xl">Access Restricted</h3>
               <p className="text-sm text-red-400 font-mono uppercase tracking-widest">
-                {lockedProject.title.replace(/\n/g, ' ')}
+                {(lockedProject.title ?? '').replace(/\n/g, ' ')}
               </p>
               <p className="text-gray-200 text-sm leading-relaxed pt-2">
                 {lockedProject.lockedReason ?? 'This project is currently restricted from public access due to security or confidentiality requirements.'}

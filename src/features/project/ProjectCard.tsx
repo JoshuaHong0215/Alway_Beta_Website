@@ -86,7 +86,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) => {
 
         {/* Tags */}
         <div className="flex flex-wrap gap-2 mb-4">
-          {project.tags.map((tag) => (
+          {(project.tags ?? []).map((tag) => (
             <span
               key={tag}
               className="px-2 py-0.5 rounded-md bg-neon-blue/20 border border-neon-blue/40 text-xs text-neon-blue font-medium"

@@ -23,7 +23,6 @@ collections:
         name: "category"
         widget: "select"
         options: ["robotics", "software", "city-plan", "architecture"]
-        required: false
       - { label: "Title", name: "title", widget: "string", required: false }
       - { label: "Description (목록 카드용 한 줄 요약)", name: "description", widget: "text", required: false }
       - { label: "Intro (상세페이지용 본문)", name: "intro", widget: "text", required: false }
@@ -43,7 +42,7 @@ collections:
         widget: "list"
         required: false
         field: { label: "Tag", name: "tag", widget: "string", required: false }
-      - { label: "Date (예: 2026. 07.)", name: "date", widget: "string", required: false }
+      - { label: "Date (예: 2026. 07.)", name: "date", widget: "string" }
       - { label: "GitHub URL", name: "githubUrl", widget: "string", required: false }
       - { label: "Locked (접근 제한)", name: "locked", widget: "boolean", required: false, default: false }
       - { label: "Locked Reason", name: "lockedReason", widget: "string", required: false }
