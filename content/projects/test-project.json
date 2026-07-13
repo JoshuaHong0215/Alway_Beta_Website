@@ -1,0 +1,16 @@
+{
+  "locked": false,
+  "sections": [
+    {
+      "wide": false,
+      "wideText": false,
+      "vertical": false
+    }
+  ],
+  "id": "test-project",
+  "category": "robotics",
+  "date": "2026.07",
+  "title": "test",
+  "description": "test",
+  "intro": "test"
+}
