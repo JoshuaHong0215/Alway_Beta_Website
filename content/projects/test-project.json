@@ -3,7 +3,7 @@
   "intro": "test",
   "sections": [
     {
-      "wide": false,
+      "wide": true,
       "wideText": false,
       "vertical": false,
       "category": "demi",
