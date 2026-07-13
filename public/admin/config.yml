@@ -22,25 +22,27 @@ collections:
         name: "category"
         widget: "select"
         options: ["robotics", "software", "city-plan", "architecture"]
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Description (목록 카드용 한 줄 요약)", name: "description", widget: "text" }
+        required: false
+      - { label: "Title", name: "title", widget: "string", required: false }
+      - { label: "Description (목록 카드용 한 줄 요약)", name: "description", widget: "text", required: false }
       - { label: "Intro (상세페이지용 본문)", name: "intro", widget: "text", required: false }
       - label: "Goal (목표, 항목별로 추가)"
         name: "goal"
         widget: "list"
         required: false
-        field: { label: "항목", name: "item", widget: "string" }
+        field: { label: "항목", name: "item", widget: "string", required: false }
       - { label: "Banner Image", name: "image", widget: "image", required: false }
       - label: "Gallery"
         name: "gallery"
         widget: "list"
         required: false
-        field: { label: "Image", name: "img", widget: "image" }
+        field: { label: "Image", name: "img", widget: "image", required: false }
       - label: "Tags"
         name: "tags"
         widget: "list"
-        field: { label: "Tag", name: "tag", widget: "string" }
-      - { label: "Date (예: 2026. 07.)", name: "date", widget: "string" }
+        required: false
+        field: { label: "Tag", name: "tag", widget: "string", required: false }
+      - { label: "Date (예: 2026. 07.)", name: "date", widget: "string", required: false }
       - { label: "GitHub URL", name: "githubUrl", widget: "string", required: false }
       - { label: "Locked (접근 제한)", name: "locked", widget: "boolean", required: false, default: false }
       - { label: "Locked Reason", name: "lockedReason", widget: "string", required: false }
@@ -49,8 +51,8 @@ collections:
         widget: "list"
         required: false
         fields:
-          - { label: "Category", name: "category", widget: "string" }
-          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Category", name: "category", widget: "string", required: false }
+          - { label: "Title", name: "title", widget: "string", required: false }
           - { label: "Description", name: "description", widget: "text", required: false }
           - { label: "Image", name: "image", widget: "image", required: false }
           - { label: "Video", name: "video", widget: "file", required: false }
