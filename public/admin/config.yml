@@ -17,6 +17,7 @@ collections:
     identifier_field: id
     extension: "json"
     format: "json"
+    sortable_fields: ["date", "category"]
     fields:
       - { label: "ID (URL slug, 영문/하이픈만)", name: "id", widget: "string" }
       - label: "Category"
