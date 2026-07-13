@@ -2,7 +2,7 @@ backend:
   name: github
   repo: JoshuaHong0215/Alway_Beta_Website
   branch: main
-  base_url: https://REPLACE-WITH-YOUR-VERCEL-DOMAIN
+  base_url: https://joshuahong-portfolio.vercel.app
   auth_endpoint: api/auth
 
 media_folder: "public/projects/uploads"
