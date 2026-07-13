@@ -9,21 +9,23 @@ media_folder: "public/projects/uploads"
 public_folder: "/projects/uploads"
 
 collections:
-  - name: "projects"
-    label: "Projects"
+  - name: "robotics"
+    label: "Robotics"
     folder: "content/projects"
     create: true
     slug: "{{fields.id}}"
     identifier_field: id
     extension: "json"
     format: "json"
-    sortable_fields: ["date", "category"]
+    filter: { field: "category", value: "robotics" }
+    sortable_fields: ["date"]
     fields:
       - { label: "ID (URL slug, 영문/하이픈만)", name: "id", widget: "string" }
       - label: "Category"
         name: "category"
         widget: "select"
         options: ["robotics", "software", "city-plan", "architecture"]
+        default: "robotics"
       - { label: "Title", name: "title", widget: "string", required: false }
       - { label: "Description (목록 카드용 한 줄 요약)", name: "description", widget: "text", required: false }
       - { label: "Intro (상세페이지용 본문)", name: "intro", widget: "text", required: false }
@@ -43,7 +45,181 @@ collections:
         widget: "list"
         required: false
         field: { label: "Tag", name: "tag", widget: "string", required: false }
-      - { label: "Date (예: 2026. 07.)", name: "date", widget: "string" }
+      - { label: "Date", name: "date", widget: "string" }
+      - { label: "GitHub URL", name: "githubUrl", widget: "string", required: false }
+      - { label: "Locked (접근 제한)", name: "locked", widget: "boolean", required: false, default: false }
+      - { label: "Locked Reason", name: "lockedReason", widget: "string", required: false }
+      - label: "Sections (상세페이지 섹션들)"
+        name: "sections"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Category", name: "category", widget: "string", required: false }
+          - { label: "Title", name: "title", widget: "string", required: false }
+          - { label: "Description", name: "description", widget: "text", required: false }
+          - { label: "Image", name: "image", widget: "image", required: false }
+          - { label: "Video", name: "video", widget: "file", required: false }
+          - { label: "YouTube ID", name: "youtubeId", widget: "string", required: false }
+          - { label: "Wide layout (풀width)", name: "wide", widget: "boolean", required: false, default: false }
+          - { label: "Wide text (풀width 텍스트)", name: "wideText", widget: "boolean", required: false, default: false }
+          - { label: "Vertical video (세로 영상)", name: "vertical", widget: "boolean", required: false, default: false }
+          - { label: "Problem (트러블슈팅 - 문제)", name: "problem", widget: "text", required: false }
+          - { label: "Solution (트러블슈팅 - 해결)", name: "solution", widget: "text", required: false }
+          - { label: "Result (트러블슈팅 - 결과)", name: "result", widget: "text", required: false }
+
+  - name: "software"
+    label: "Software"
+    folder: "content/projects"
+    create: true
+    slug: "{{fields.id}}"
+    identifier_field: id
+    extension: "json"
+    format: "json"
+    filter: { field: "category", value: "software" }
+    sortable_fields: ["date"]
+    fields:
+      - { label: "ID (URL slug, 영문/하이픈만)", name: "id", widget: "string" }
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options: ["robotics", "software", "city-plan", "architecture"]
+        default: "software"
+      - { label: "Title", name: "title", widget: "string", required: false }
+      - { label: "Description (목록 카드용 한 줄 요약)", name: "description", widget: "text", required: false }
+      - { label: "Intro (상세페이지용 본문)", name: "intro", widget: "text", required: false }
+      - label: "Goal (목표, 항목별로 추가)"
+        name: "goal"
+        widget: "list"
+        required: false
+        field: { label: "항목", name: "item", widget: "string", required: false }
+      - { label: "Banner Image", name: "image", widget: "image", required: false }
+      - label: "Gallery"
+        name: "gallery"
+        widget: "list"
+        required: false
+        field: { label: "Image", name: "img", widget: "image", required: false }
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        required: false
+        field: { label: "Tag", name: "tag", widget: "string", required: false }
+      - { label: "Date", name: "date", widget: "string" }
+      - { label: "GitHub URL", name: "githubUrl", widget: "string", required: false }
+      - { label: "Locked (접근 제한)", name: "locked", widget: "boolean", required: false, default: false }
+      - { label: "Locked Reason", name: "lockedReason", widget: "string", required: false }
+      - label: "Sections (상세페이지 섹션들)"
+        name: "sections"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Category", name: "category", widget: "string", required: false }
+          - { label: "Title", name: "title", widget: "string", required: false }
+          - { label: "Description", name: "description", widget: "text", required: false }
+          - { label: "Image", name: "image", widget: "image", required: false }
+          - { label: "Video", name: "video", widget: "file", required: false }
+          - { label: "YouTube ID", name: "youtubeId", widget: "string", required: false }
+          - { label: "Wide layout (풀width)", name: "wide", widget: "boolean", required: false, default: false }
+          - { label: "Wide text (풀width 텍스트)", name: "wideText", widget: "boolean", required: false, default: false }
+          - { label: "Vertical video (세로 영상)", name: "vertical", widget: "boolean", required: false, default: false }
+          - { label: "Problem (트러블슈팅 - 문제)", name: "problem", widget: "text", required: false }
+          - { label: "Solution (트러블슈팅 - 해결)", name: "solution", widget: "text", required: false }
+          - { label: "Result (트러블슈팅 - 결과)", name: "result", widget: "text", required: false }
+
+  - name: "city-plan"
+    label: "City Plan"
+    folder: "content/projects"
+    create: true
+    slug: "{{fields.id}}"
+    identifier_field: id
+    extension: "json"
+    format: "json"
+    filter: { field: "category", value: "city-plan" }
+    sortable_fields: ["date"]
+    fields:
+      - { label: "ID (URL slug, 영문/하이픈만)", name: "id", widget: "string" }
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options: ["robotics", "software", "city-plan", "architecture"]
+        default: "city-plan"
+      - { label: "Title", name: "title", widget: "string", required: false }
+      - { label: "Description (목록 카드용 한 줄 요약)", name: "description", widget: "text", required: false }
+      - { label: "Intro (상세페이지용 본문)", name: "intro", widget: "text", required: false }
+      - label: "Goal (목표, 항목별로 추가)"
+        name: "goal"
+        widget: "list"
+        required: false
+        field: { label: "항목", name: "item", widget: "string", required: false }
+      - { label: "Banner Image", name: "image", widget: "image", required: false }
+      - label: "Gallery"
+        name: "gallery"
+        widget: "list"
+        required: false
+        field: { label: "Image", name: "img", widget: "image", required: false }
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        required: false
+        field: { label: "Tag", name: "tag", widget: "string", required: false }
+      - { label: "Date", name: "date", widget: "string" }
+      - { label: "GitHub URL", name: "githubUrl", widget: "string", required: false }
+      - { label: "Locked (접근 제한)", name: "locked", widget: "boolean", required: false, default: false }
+      - { label: "Locked Reason", name: "lockedReason", widget: "string", required: false }
+      - label: "Sections (상세페이지 섹션들)"
+        name: "sections"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Category", name: "category", widget: "string", required: false }
+          - { label: "Title", name: "title", widget: "string", required: false }
+          - { label: "Description", name: "description", widget: "text", required: false }
+          - { label: "Image", name: "image", widget: "image", required: false }
+          - { label: "Video", name: "video", widget: "file", required: false }
+          - { label: "YouTube ID", name: "youtubeId", widget: "string", required: false }
+          - { label: "Wide layout (풀width)", name: "wide", widget: "boolean", required: false, default: false }
+          - { label: "Wide text (풀width 텍스트)", name: "wideText", widget: "boolean", required: false, default: false }
+          - { label: "Vertical video (세로 영상)", name: "vertical", widget: "boolean", required: false, default: false }
+          - { label: "Problem (트러블슈팅 - 문제)", name: "problem", widget: "text", required: false }
+          - { label: "Solution (트러블슈팅 - 해결)", name: "solution", widget: "text", required: false }
+          - { label: "Result (트러블슈팅 - 결과)", name: "result", widget: "text", required: false }
+
+  - name: "architecture"
+    label: "Architecture"
+    folder: "content/projects"
+    create: true
+    slug: "{{fields.id}}"
+    identifier_field: id
+    extension: "json"
+    format: "json"
+    filter: { field: "category", value: "architecture" }
+    sortable_fields: ["date"]
+    fields:
+      - { label: "ID (URL slug, 영문/하이픈만)", name: "id", widget: "string" }
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options: ["robotics", "software", "city-plan", "architecture"]
+        default: "architecture"
+      - { label: "Title", name: "title", widget: "string", required: false }
+      - { label: "Description (목록 카드용 한 줄 요약)", name: "description", widget: "text", required: false }
+      - { label: "Intro (상세페이지용 본문)", name: "intro", widget: "text", required: false }
+      - label: "Goal (목표, 항목별로 추가)"
+        name: "goal"
+        widget: "list"
+        required: false
+        field: { label: "항목", name: "item", widget: "string", required: false }
+      - { label: "Banner Image", name: "image", widget: "image", required: false }
+      - label: "Gallery"
+        name: "gallery"
+        widget: "list"
+        required: false
+        field: { label: "Image", name: "img", widget: "image", required: false }
+      - label: "Tags"
+        name: "tags"
+        widget: "list"
+        required: false
+        field: { label: "Tag", name: "tag", widget: "string", required: false }
+      - { label: "Date", name: "date", widget: "string" }
       - { label: "GitHub URL", name: "githubUrl", widget: "string", required: false }
       - { label: "Locked (접근 제한)", name: "locked", widget: "boolean", required: false, default: false }
       - { label: "Locked Reason", name: "lockedReason", widget: "string", required: false }
