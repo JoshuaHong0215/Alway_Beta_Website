@@ -203,7 +203,7 @@ const ProjectDetail: React.FC = () => {
             TAG
           </div>
           <div className="flex flex-wrap gap-3">
-            {project.tags.map(tag => (
+            {(project.tags ?? []).map(tag => (
               <span key={tag} className="border border-neon-blue/50 text-neon-blue px-4 py-1.5 rounded-full text-sm font-medium">
                 {tag}
               </span>
@@ -214,7 +214,7 @@ const ProjectDetail: React.FC = () => {
             INTRO
           </div>
           <div className="text-gray-300 text-lg leading-relaxed whitespace-pre-line max-w-5xl font-normal">
-            {formatText((project.intro || project.description).trim())}
+            {formatText((project.intro || project.description || '').trim())}
           </div>
 
           {project.goal && project.goal.length > 0 && (
@@ -288,7 +288,7 @@ const ProjectDetail: React.FC = () => {
                   <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 tracking-tight">
                     {section.title}
                   </h2>
-                  {section.description.trim() && (
+                  {section.description?.trim() && (
                     <p className="text-gray-400 text-lg leading-relaxed whitespace-pre-line">
                       {formatText(section.description.trim())}
                     </p>
@@ -344,9 +344,11 @@ const ProjectDetail: React.FC = () => {
                 <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 tracking-tight">
                   {section.title}
                 </h2>
-                <p className="text-gray-400 text-lg leading-relaxed whitespace-pre-line">
-                  {formatText(section.description)}
-                </p>
+                {section.description && (
+                  <p className="text-gray-400 text-lg leading-relaxed whitespace-pre-line">
+                    {formatText(section.description)}
+                  </p>
+                )}
               </div>
 
               {/* 미디어 영역 */}
