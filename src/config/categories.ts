@@ -13,6 +13,7 @@ export const CATEGORIES: CategoryConfig[] = [
     id: 'robotics',
     label: 'Robotics',
     icon: Cpu,
+    navLabel: 'Robotics',
   },
   {
     id: 'software',
