@@ -153,7 +153,7 @@ const About: React.FC = () => {
                 period: '2026.10 -',
                 company: 'ask robotics',
                 role: 'Robotics Engineer',
-                description: '',
+                description: '재직 중',
               },
 
               {

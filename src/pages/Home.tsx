@@ -36,13 +36,13 @@ const Home: React.FC = () => {
           </h1>
           
           <p className="text-gray-100 text-lg md:text-xl max-w-lg leading-relaxed animate-slide-up [animation-delay:200ms]">
-            끊임없이 배움을 갈망하는 예비 개발자입니다
+            끊임없이 배움을 갈망하는 개발자입니다.
             <br/>
             수도권 4년제 대학에서 환경디자인을 전공하였고 
             <br/>
             경관 및 건축디자인회사와 도시계획 회사에서 재직하다가
             <br/>
-            현재는 로보틱스 개발자를 꿈꾸며 성장하고 있습니다.
+            현재는 애스크로보틱스에서  로봇 개발자로 재직하고 있습니다.
           </p>
 
           <div className="pt-4 animate-slide-up [animation-delay:400ms] pointer-events-auto">
